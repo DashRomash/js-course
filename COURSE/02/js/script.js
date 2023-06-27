@@ -93,7 +93,53 @@ let input15 = document.querySelector('.i-15');
 button15.onclick = function () {
     input15.innerHTML = (style.border = "4px solid red")
 
-}    //  task 14!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}    //  task 15!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+let button16 = document.querySelector('.b-16');
+let input16_1 = document.querySelector('.i16-1');
+let input16_2 = document.querySelector('.i16-2');
+button16.onclick = function () {
+    let d16 = document.querySelector('.out-16').innerHTML = (+input16_1.value + +input16_2.value)
+}   //  task 16
+
+
+let button17 = document.querySelector('.b-17');
+let input17 = document.querySelector('.i-17');
+button17.onclick = function () {
+    let a17 = (input17.value)
+    input17.value = ""
+
+}    //  task 17!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+let button18 = document.querySelector('.b-18');
+let input18 = document.querySelector('.i-18');
+button18.onclick = function () {
+    let a18 = (input17.value)
+    document.querySelector('.out-18').innerHTML = parseFloat(input18.value8)
+
+} //  task 18!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+let button19 = document.querySelector('.b-19');
+let input19_1 = document.querySelector('.i19-1');
+let input19_2 = document.querySelector('.i19-2');
+button19.onclick = function () {
+    document.querySelector('.out-19').innerHTML = (+input19_1.value + +input19_2.value)
+}   //  task 19
+
+
+let button20 = document.querySelector('.b-20');
+button20.onclick = function () {
+    document.querySelector('.out-20').innerHTML = ()
+}
+
+
+
+
+
+
 
 
 
