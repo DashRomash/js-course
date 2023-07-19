@@ -26,21 +26,56 @@ button4.onclick = function () {
 }   //task4
 
 let button5 = document.querySelector('.b-5');
+let input5 = document.querySelector('#five');
 button5.onclick = function () {
-    let myCheckBox = document.querySelector('#i-5');
+    let myCheckBox = document.querySelector(input5.value);
     if (myCheckBox.checked) {
-        document.querySelector('.out-5').innerHTML = ('#i-5'.value);  //????
+        document.querySelector('.out-5').innerHTML = (input5.value);
     }
     else {
         document.querySelector('.out-5').innerHTML = 'false';
     }
 }   //task5!!!!!!!!!!! в 6 таске "обратите внимание.." -ощущение, что решение уже где то написано
 
-let button5 = document.querySelector('.b-5');
+let button6 = document.querySelector('.b-6');
+let input6 = document.querySelector('#six')
 button5.onclick = function () {
-    document.querySelector('#i-5')
+    document.querySelector(input6.value);
 }   //task6!!!!!!!!!!!
 
+let button7 = document.querySelector('.b-7');
+let input7 = document.querySelector('#seven');
+button7.onclick = function () {
+    document.querySelector('.out-71').innerHTML = (input7.value);
+
+    if (input7.length >= 6) {
+        document.querySelector('.out-72').innerHTML = ('1');//!!!!!!!!!!!!!
+    }
+    else {
+        document.querySelector('.out-72').innerHTML = ('0');
+    }
+
+}//task7!!!!!!!!!!!!!!
+
+
+let button8 = document.querySelector('.b-8');
+button8.onclick = function () {
+    let out8 = document.querySelector('.out-8');
+    out8.innerHTML = document.querySelector('.js72');
+    out8.innerHTML = document.querySelector('.text8');
+}//8 очень странный результат
+
+
+let button9 = document.querySelector('.b-9');
+button9.onclick = function () {
+    let radioPoint = document.querySelector('.r-9');
+    if (radioPoint.checked) {
+        document.querySelector('.out-9').innerHTML = (radioPoint.value)
+    }
+    else {
+        document.querySelector('.out-9').innerHTML = ('false')
+    }
+}
 
 
 
