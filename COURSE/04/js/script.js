@@ -75,15 +75,75 @@ button9.onclick = function () {
     else {
         document.querySelector('.out-9').innerHTML = ('false')
     }
-}
+}//9
+
+let button10 = document.querySelector('.b-10');
+button10.onclick = function () {
+    let colorBox = document.querySelector('.c-10');
+    //document.querySelector('.out-10').innerHTML = (colorBox.value)
+    document.querySelector('.out-10').style.backgroundColor = (colorBox.value)
+}//10
 
 
+let button11 = document.querySelector('.b-11');
+button11.onclick = function () {
+    let colorPlace = document.querySelector('.c-111');
+    document.querySelector('.i-112').innerHTML = (colorPlace.value)
+}//11!!!!!! не вышло не пойму почему
 
 
+let button12 = document.querySelector('.b-12');
+button12.onclick = function () {
+    let dataBox = document.querySelector('.i-12');
+    document.querySelector('.out-12').innerHTML = (dataBox.value)
+}//12
 
 
+document.querySelector('.i-13').oninput = function () {
+    let lonelyRanger = document.querySelector('.i-13')
+    document.querySelector('.out-13').innerHTML = (lonelyRanger.value)
+}//13
+
+let button14 = document.querySelector('.b-14');
+button14.onclick = function () {
+    let textPlace = document.querySelector('.t-14')
+    document.querySelector('.out-14').innerHTML = (textPlace.value)
+}//14
+
+let button15 = document.querySelector('.b-15');
+button15.onclick = function () {
+    let c = document.querySelector('.i-15')
+    document.querySelector('.out-15').innerHTML = (c.value)
+    document.querySelector('.t-15').innerHTML = (c.value)
+}//15
+
+let button16 = document.querySelector('.b-16');
+button16.onclick = function () {
+    let d = document.querySelector('.s-16')
+    document.querySelector('.out-16').innerHTML = (d.value)
+}//16
+
+document.querySelector('.s-17').oninput = function () {
+    let s = document.querySelector('.s-17')
+    document.querySelector('.out-17').innerHTML = (s.value)
+}//17
+
+document.querySelector('.s-18').oninput = function () {
+    let t = document.querySelector('.s-18')
+    document.querySelector('.i-18').value = (t.value)
+}//18
+
+let button19 = document.querySelector('.b-19');
+button19.onclick = function () {
+    let g = document.querySelector('.out-19')
+    document.querySelector('.i-19').innerHTML = (g.value)
+}//19!!!!!!!!!! ясно одно: что либо встроить в инпут надо как то особенно.у дива ведь нет валью
 
 
+document.querySelector('.s-201').oninput = function () {
+    let m = document.querySelector('.s-201');
+    document.querySelector('.s-202').value = (m.value)
+}//20
 
 
 
