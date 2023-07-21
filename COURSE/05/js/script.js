@@ -24,12 +24,27 @@ button4.onclick = function t4() {
 }//task4 ломается
 
 let button5 = document.querySelector('.b-5');
+let o5 = ' ';
 function t5() {
     for (let i = 1; i <= 17; i = i + 1)
-        document.querySelector('.out-5').innerHTML += i + "_*";
+        if (i % 2 == 1) {
+            o5 += i + "_*";
+        }
+        else {
+            o5 += i + "_**";
+        }
 }
 button5.onclick = t5;
-//task5
+document.querySelector('.out-5').innerHTML = o5;
+//task5 не рабатает
+
+let button6 = document.querySelector('.b-6');
+button6.onclick = function t6() {
+    for (let i = 0; i < 4; i++) {
+        document.querySelector('.out-6').innerHTML = "*****"; continue;
+    }
+}
+
 
 
 
