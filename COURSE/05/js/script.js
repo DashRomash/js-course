@@ -40,11 +40,21 @@ document.querySelector('.out-5').innerHTML = o5;
 
 let button6 = document.querySelector('.b-6');
 button6.onclick = function t6() {
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i = i + 1) {
         document.querySelector('.out-6').innerHTML = "*****"; continue;
     }
-}
+}//task5 не правильно
 
+
+let button7 = document.querySelector('.b-7');
+let i7 = document.querySelector('.i-7');
+
+function t7() {
+    for (let i = 0; i < 100; i++)
+        document.querySelector('.out-7').innerHTML = (i7.value);
+
+}
+button7.onclick = t7;
 
 
 
