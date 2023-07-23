@@ -43,18 +43,38 @@ button6.onclick = function t6() {
     for (let i = 0; i < 4; i = i + 1) {
         document.querySelector('.out-6').innerHTML = "*****"; continue;
     }
-}//task5 не правильно
+}//task6 не правильно
 
 
 let button7 = document.querySelector('.b-7');
 let i7 = document.querySelector('.i-7');
-
 function t7() {
-    for (let i = 0; i < 100; i++)
-        document.querySelector('.out-7').innerHTML = (i7.value);
+    let a = [i7.value];
+    //while (a > 0) {
+    // document.querySelector('.out-7').innerHTML = a;
+    //a--;
+    //}
 
+
+    //document.querySelector('.out-7').innerHTML = a + '_' + (a - 1);
+    //let n = a - 1;
+    //while (n > 0) {
+    //document.querySelector('.out-7').innerHTML = a + '_' + (n);
+
+    //}
+    //a--; все не правильно
 }
-button7.onclick = t7;
+button7.onclick = t7;//task7 нифига не понимаю как сделать
+
+
+let button8 = document.querySelector('.b-8');
+button8.onclick = function t8() {
+    let a = document.querySelector[('.i-81').value]
+    let b = document.querySelector[('.i-81').value]
+    for (i = 1; i < 100; i++) {
+        document.querySelector('.out-8').innerHTML = a + '_' + i + '_' + b;
+    }
+}
 
 
 
