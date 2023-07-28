@@ -23,69 +23,71 @@ button4.onclick = function t4() {
         console.log(i + "_");
         document.querySelector('.out-4').innerHTML += i + "_";
     }
-    // console.log(i);
-    // console.log(i + "_");
+}//task4 
 
-    // document.querySelector('.out-4').innerHTML += i + "_";
-}//task4 ломается
-
-let button5 = document.querySelector('.b-5');
-let o5 = ' ';
-function t5() {
-    for (let i = 1; i <= 17; i = i + 1) {
-        console.log(i);
-        if (i % 2 == 1) {
-            o5 += i + "_*";
-            console.log(i);
-        }
-        else {
-            o5 += i + "_**";
-        }
-        // console.log(i);
-    }
-}
-console.log('test', o5);
-button5.onclick = t5();
-document.querySelector('.out-5').innerHTML = o5;
-//task5 не рабатает
+// let button5 = document.querySelector('.b-5');
+// let o5 = ' ';
+// function t5() {
+//     for (let i = 1; i <= 17; i = i + 1) {
+//         console.log(i);
+//         if (i % 2 == 1) {
+//             o5 += i + "_*";
+//             console.log(i);
+//         }
+//         else {
+//             o5 += i + "_**";
+//         }
+//     }
+// }
+// console.log('test', o5);
+// button5.onclick = t5();
+// document.querySelector('.out-5').innerHTML = o5;
+//task5 
 
 let button6 = document.querySelector('.b-6');
 button6.onclick = function t6() {
-    for (let i = 0; i < 4; i = i + 1) {
-        document.querySelector('.out-6').innerHTML = "*****"; continue;
+    for (let i = 0; i < 3; i++) {
+        document.querySelector('.out-6').innerHTML = "*****" + "<br>"
     }
 }//task6 не правильно
 
 
-let button7 = document.querySelector('.b-7');
-let i7 = document.querySelector('.i-7');
-function t7() {
-    let a = [i7.value];
-    //while (a > 0) {
-    // document.querySelector('.out-7').innerHTML = a;
-    //a--;
-    //}
+// let button7 = document.querySelector('.b-7');
+// let i7 = document.querySelector('.i-7');
+// button7.onclick = function t7() {
+//     while ([i7.value] >= 0) {
+//         [i7.value] = [i7.value] - 1;
+//         document.querySelector('.out-7').innerHTML = [i7.value] + '_';
+//     }
+// }
+//task7 huy
 
 
-    //document.querySelector('.out-7').innerHTML = a + '_' + (a - 1);
-    //let n = a - 1;
-    //while (n > 0) {
-    //document.querySelector('.out-7').innerHTML = a + '_' + (n);
+// let button8 = document.querySelector('.b-8');
+// let i81 = document.querySelector('.i-81');
+// let i82 = document.querySelector('.i-82');
+// let a = [i81.value];
+// let b = [i82.value];
+// console.log(a, b);
+// button8.onclick = function t8() {
+//     for (let i; a < i > b; i++) {
+//         console.log(a + '_' + i + '_' + b);
+//         // document.querySelector('.out-8').innerHTML = a + '_' + i + '_' + b;
+//     }
+// } task8 huy
 
-    //}
-    //a--; все не правильно
-}
-button7.onclick = t7;//task7 нифига не понимаю как сделать
-
-
-let button8 = document.querySelector('.b-8');
-button8.onclick = function t8() {
-    let a = document.querySelector[('.i-81').value]
-    let b = document.querySelector[('.i-81').value]
-    for (i = 1; i < 100; i++) {
-        document.querySelector('.out-8').innerHTML = a + '_' + i + '_' + b;
+let button10 = document.querySelector('.b-10');
+button10.onclick = function t10() {
+    for (let i = 1950; i <= 1970; i = i + 2) {
+        document.querySelector('.out-10').innerHTML += i + '_';
     }
-}
+}//task10 
+
+let button15 = document.querySelector('.b-15');
+button15.onclick = function t15() {
+    for (let i; )
+
+}//task15
 
 
 
