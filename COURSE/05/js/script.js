@@ -19,22 +19,33 @@ button3.onclick = function t3() {
 
 let button4 = document.querySelector('.b-4');
 button4.onclick = function t4() {
-    for (let i = 77; i >= 35; i = i + 3)
+    for (let i = 77; i >= 35; i = i - 3) {
+        console.log(i + "_");
         document.querySelector('.out-4').innerHTML += i + "_";
+    }
+    // console.log(i);
+    // console.log(i + "_");
+
+    // document.querySelector('.out-4').innerHTML += i + "_";
 }//task4 ломается
 
 let button5 = document.querySelector('.b-5');
 let o5 = ' ';
 function t5() {
-    for (let i = 1; i <= 17; i = i + 1)
+    for (let i = 1; i <= 17; i = i + 1) {
+        console.log(i);
         if (i % 2 == 1) {
             o5 += i + "_*";
+            console.log(i);
         }
         else {
             o5 += i + "_**";
         }
+        // console.log(i);
+    }
 }
-button5.onclick = t5;
+console.log('test', o5);
+button5.onclick = t5();
 document.querySelector('.out-5').innerHTML = o5;
 //task5 не рабатает
 
