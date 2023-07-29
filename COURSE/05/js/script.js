@@ -3,7 +3,7 @@ function t1() {
     for (let i = 0; i <= 16; i++)
         document.querySelector('.out-1').innerHTML += i + "_";
 }
-button1.onclick = t1;//task1
+button1.onclick = t1();//task1
 
 let button2 = document.querySelector('.b-2');
 button2.onclick = function t2() {
@@ -42,7 +42,7 @@ button4.onclick = function t4() {
 // console.log('test', o5);
 // button5.onclick = t5();
 // document.querySelector('.out-5').innerHTML = o5;
-//task5 
+// task5
 
 let button6 = document.querySelector('.b-6');
 button6.onclick = function t6() {
@@ -52,29 +52,45 @@ button6.onclick = function t6() {
 }//task6 не правильно
 
 
-// let button7 = document.querySelector('.b-7');
-// let i7 = document.querySelector('.i-7');
-// button7.onclick = function t7() {
-//     while ([i7.value] >= 0) {
-//         [i7.value] = [i7.value] - 1;
-//         document.querySelector('.out-7').innerHTML = [i7.value] + '_';
-//     }
-// }
-//task7 huy
+let button7 = document.querySelector('.b-7');
+let i7 = document.querySelector('.i-7');
+button7.onclick = function t7() {
+    // while ([i7.value] > 0) {
+    //     [i7.value] = [i7.value] - 1;
+    //     document.querySelector('.out-7').innerHTML = [i7.value] + '_';
+    // }
+    for (let i = [i7.value]; i >= 0; i = i - 1) {
+        document.querySelector('.out-7').innerHTML += i + '_'
+    }
+}
+// task7 huy
 
 
-// let button8 = document.querySelector('.b-8');
-// let i81 = document.querySelector('.i-81');
-// let i82 = document.querySelector('.i-82');
-// let a = [i81.value];
-// let b = [i82.value];
-// console.log(a, b);
-// button8.onclick = function t8() {
-//     for (let i; a < i > b; i++) {
-//         console.log(a + '_' + i + '_' + b);
-//         // document.querySelector('.out-8').innerHTML = a + '_' + i + '_' + b;
+let button8 = document.querySelector('.b-8');
+let i81 = document.querySelector('.i-81');
+let i82 = document.querySelector('.i-82');
+button8.onclick = function t8() {
+    for (let i = [i81.value]; i <= [i82.value]; i++) {
+        document.querySelector('.out-8').innerHTML += i + '_'
+    }
+} //task8 
+
+// let button9 = document.querySelector('.b-9');
+// let i91 = document.querySelector('.i-91');
+// let i92 = document.querySelector('.i-92');
+// button9.onclick = function t9() {
+//     if ([i91.value] < [i92.value]) {
+//         for (let i = [i91.value]; i <= [i92.value]; i++) {
+//             // console.log(i + '_')
+//             document.querySelector('.out-9').innerHTML += i + '_';
+//         }
 //     }
-// } task8 huy
+//     else {
+//         for (let i = [i92.value]; i <= [i91.value]; i++) {
+//             document.querySelector('.out-9').innerHTML += i + '_';
+//         }
+//     }
+// } //task8 
 
 let button10 = document.querySelector('.b-10');
 button10.onclick = function t10() {
@@ -85,7 +101,10 @@ button10.onclick = function t10() {
 
 let button15 = document.querySelector('.b-15');
 button15.onclick = function t15() {
-    for (let i; )
+    for (let a = 10; a >= 0; a--) {
+        document.querySelector('.out-15').innerHTML += i + '_';
+    }
+
 
 }//task15
 
