@@ -99,6 +99,44 @@ button10.onclick = function t10() {
     }
 }//task10 
 
+let button11 = document.querySelector('.b-11');
+button11.onclick = function t11() {
+    let divs11 = document.querySelector('.div-11');
+    for (let i = 0; i < divs11.length; i = i + 1) {
+        divs11[i].innerHTML;
+    }
+    document.querySelector('.out-11').innerHTML += (divs11[i].innerHTML);
+}//task11  ошибка 
+
+let button12 = document.querySelector('.b-11');
+button12.onclick = function t12() {
+    let elem = document.querySelector('.div-12');
+    for (let i = 0; i < divs12.length; i = i + 1) {
+        elem[i].innerHTML;
+    }
+    elem[i].style.background = "orange";
+}//task12  ошибка 
+
+let in13 = document.querySelector('i-13');
+for (i = 0; i < in13.length; i = i + 1) {
+    in13[0].value.innerHTML = "1";
+    in13[1].value.innerHTML = "2";
+    in13[2].value.innerHTML = "3";
+}//task13 
+
+let button14 = document.querySelector('.b-14');
+button14.onclick = function t14() {
+    let elem = document.querySelector('i-14');
+    for (i = 0; i < in14.length; i = i + 1) {
+        elem[i].innerHTML;
+    }
+    document.querySelector('.out-14').innerHTML += elem[i].cheked.value;
+}
+
+
+
+
+
 let button15 = document.querySelector('.b-15');
 button15.onclick = function t15() {
     for (let a = 10; a >= 0; a--) {
