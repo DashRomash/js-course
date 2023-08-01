@@ -56,15 +56,44 @@
 
 //task6 получилось
 
-let out6 = document.querySelector('.out-6');
-for (i = 1; i < 4; i++) {
-    for (k = 1; k < 2; k++) {
-        out6.innerHTML += "10x01x"
+// let out6 = document.querySelector('.out-6');
+// for (i = 1; i < 4; i++) {
+//     for (k = 1; k < 2; k++) {
+//         out6.innerHTML += "10x01x"
+//     }
+//     out6.innerHTML += "<br>"
+// }
+
+//task7 polnoe govno
+
+let out7 = document.querySelector('.out-7');
+
+for (i = 1; i < 5; i++) {
+    for (k = 1; k < 5; k++) {
+        out7.innerHTML += `${i * }`
     }
-    out6.innerHTML += "<br>"
+    out7.innerHTML += "<br>"
 }
 
 
+
+
+//task10
+// let out10 = document.querySelector('.out-10');
+// res = "";
+// for (i = 0; i < 5; i++) {
+//     res += '<br>';
+//     for (k = 1; k <= 10; k++) {
+//         if (k < 10) {
+//             res += `${i}${k}_`;
+//         }
+//         else {
+//             res += `${k * (i + 1)}_`;
+//         }
+
+//     }
+//     out10.innerHTML = res;
+// }
 
 
 
