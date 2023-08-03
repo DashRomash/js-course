@@ -66,14 +66,14 @@
 
 //task7 ne poluchilos`
 
-let out7 = document.querySelector('.out-7');
+// let out7 = document.querySelector('.out-7');
 
-for (i = 1; i < 5; i++) {
-    for (k = i; k < 5; k++) {
-        out7.innerHTML += '*';
-    }
-    out7.innerHTML += "<br>"
-}
+// for (i = 1; i < 5; i++) {
+//     for (k = i; k < 5; k++) {
+//         out7.innerHTML += '*';
+//     }
+//     out7.innerHTML += "<br>"
+// }
 
 //task8 получилось
 
@@ -85,6 +85,17 @@ for (i = 1; i < 5; i++) {
 //     }
 //     out8.innerHTML += "<br>"
 // }
+
+//task9  ne poluchilos`
+
+
+let out9 = document.querySelector('.out-9');
+for (i = 1; i <= 5; i++) {
+    for (k = i; k <= 5; k++) {
+        out9.innerHTML += `${k}_`;
+    }
+    out9.innerHTML += "<br>";
+}
 
 
 
