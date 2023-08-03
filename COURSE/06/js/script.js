@@ -64,16 +64,27 @@
 //     out6.innerHTML += "<br>"
 // }
 
-//task7 polnoe govno
+//task7 ne poluchilos`
 
 let out7 = document.querySelector('.out-7');
 
 for (i = 1; i < 5; i++) {
-    for (k = 1; k < 5; k++) {
-        out7.innerHTML += `${i * }`
+    for (k = i; k < 5; k++) {
+        out7.innerHTML += '*';
     }
     out7.innerHTML += "<br>"
 }
+
+//task8 получилось
+
+// let out8 = document.querySelector('.out-8');
+
+// for (i = 1; i <= 5; i++) {
+//     for (k = i; k <= 5; k++) {
+//         out8.innerHTML += '*';
+//     }
+//     out8.innerHTML += "<br>"
+// }
 
 
 
