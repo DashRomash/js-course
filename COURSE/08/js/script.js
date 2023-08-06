@@ -76,7 +76,20 @@
 // }
 // button5.onclick = t5();
 
+//TASK 6
 
+let button6 = document.querySelector('.b-6');
+let out6 = document.querySelector('.out-6');
+let i6 = document.querySelector('.i-6');
+let k = i6.value;
+let i = 1;
+function t6() {
+    while (i <= k) {
+        out6.innerHTML += `******<br>`
+    }
+
+}
+button6.onclick = t6();
 
 
 
