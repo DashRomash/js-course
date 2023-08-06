@@ -32,25 +32,21 @@ button32.onclick = out3.innerHTML = t3(96, 3);
 
 //task4 ne rabotaet
 
-// let button4 = document.querySelector('.b-4');
-// let i4 = document.querySelector('.i-4');
-// let a = +i4.value;
-// button4.onclick = function t4(a, b) {
+
+// function t4(a) {
 //     let b = 2023;
 //     return (b - a);
 // }
-// out4.innerHTML = t4();
+// console.log(t4(1992))
 
-// //task5 плохо
+// //task5 передача результата выполнения функции в переменную
 
-// let button5 = document.querySelector('.b-5');
-// let i5 = document.querySelector('.i-5');
-// let out5 = document.querySelector('.out-5');
-// function t5(a) {
-//     let a = i5.value;
-//     out5.innerHTML = a.length;
-// }
-// button5.onclick = t5(dasha);
+
+function t5(a) {
+    return a.length;
+}
+let resT5 = t5('dasha')
+// console.log(resT5);
 
 
 //task6 //  получилось
@@ -74,14 +70,23 @@ button32.onclick = out3.innerHTML = t3(96, 3);
 
 // let a7 = 0;
 // let b7 = 255;
-// let res = '';
-// for (let i = 1; i < 4; i++) {
-//     function getRandomNumber(a7, b7) {
-//         return Math.floor(Math.random() * (b7 - a7 + 1)) + a7
-//     }
-//     console.log(getRandomNumber(a7, b7))
-// }
-// c("rgb " + "(" + getRandomNumber(a7, b7), getRandomNumber(a7, b7), getRandomNumber(a7, b7) + ")")
+
+function t7(min, max) {
+
+    function getRandomNumber() {
+        return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+    let x = getRandomNumber();
+    let y = getRandomNumber();
+    let z = getRandomNumber();
+    let res = `rgb(${x},${y},${z})`;
+    let div7 = document.querySelector('.out-7');
+
+    console.log(res)
+    console.log(div7)
+    div7.style = `background-color:${res}`
+}
+console.log(t7(0, 255))
 
 //task8  не вышло естественно
 
