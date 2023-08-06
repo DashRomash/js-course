@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    width: 950px;
+    justify-content: space-around;
+}
+
+.outer {
+    display: block;
+    border: 2 solid lightgray;
+    border-radius: 2px;
+    width: 700px;
+    height: 25px;
+}
+
+.button {
+    display: block;
+    height: 25px;
+    width: 45px;
+}
