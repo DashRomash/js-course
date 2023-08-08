@@ -82,10 +82,11 @@ let button6 = document.querySelector('.b-6');
 let out6 = document.querySelector('.out-6');
 let i6 = document.querySelector('.i-6');
 let k = i6.value;
-let i = 1;
 function t6() {
-    while (i <= k) {
+    for (let i = 0; i < k; i++) {
+
         out6.innerHTML += `******<br>`
+
     }
 
 }
