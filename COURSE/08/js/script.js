@@ -78,23 +78,68 @@
 
 //TASK 6
 
-let button6 = document.querySelector('.b-6');
-let out6 = document.querySelector('.out-6');
-let i6 = document.querySelector('.i-6');
-let k = i6.value;
-function t6() {
-    for (let i = 0; i < k; i++) {
+// let button6 = document.querySelector('.b-6');
+// let out6 = document.querySelector('.out-6');
+// let i6 = document.querySelector('.i-6');
+// let k = i6.value;
+// function t6() {
+//     for (let i = 0; i < k; i++) {
+//         out6.innerHTML += `******<br>`
+//     }
+// }
+// button6.onclick = t6();
 
-        out6.innerHTML += `******<br>`
 
+//TASK 7 работает , но не по кнопке, а по обновл. стр.
+
+// let button7 = document.querySelector('.b-7');
+// let out7 = document.querySelector('.out-7');
+// let i7 = document.querySelector('.i-7');
+// let k = i7.value;
+// function t7() {
+//     while (k >= 0) {
+//         out7.innerHTML += `${k}`
+//         k--
+//     }
+// }
+// button7.onclick = t7();
+
+
+//TASK 8
+
+// let button8 = document.querySelector('.b-8');
+// let out8 = document.querySelector('.out-8');
+// let i81 = document.querySelector('.i-81');
+// let i82 = document.querySelector('.i-82');
+// function t8() {
+//     let k = i81.value;
+//     while (k <= i82.value) {
+//         out8.innerHTML += `${k}_`
+//         k++;
+//     }
+// }
+// button8.onclick = t8;
+
+//TASK 9  не работает цикл элс
+
+let button9 = document.querySelector('.b-9');
+let out9 = document.querySelector('.out-9');
+let i91 = document.querySelector('.i-91');
+let i92 = document.querySelector('.i-92');
+function t9() {
+    if (i91.value < i92.value) {
+        let k = i91.value;
+        while (k <= i92.value) {
+            out9.innerHTML += `${k}_`
+            k++;
+        }
     }
-
+    else {
+        let k = i92.value;
+        while (k <= i91.value) {
+            out9.innerHTML += `${k}_`
+            k++;
+        }
+    }
 }
-button6.onclick = t6();
-
-
-
-
-
-
-
+button9.onclick = t9;
