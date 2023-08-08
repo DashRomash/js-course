@@ -122,24 +122,53 @@
 
 //TASK 9  не работает цикл элс
 
-let button9 = document.querySelector('.b-9');
-let out9 = document.querySelector('.out-9');
-let i91 = document.querySelector('.i-91');
-let i92 = document.querySelector('.i-92');
-function t9() {
-    if (i91.value < i92.value) {
-        let k = i91.value;
-        while (k <= i92.value) {
-            out9.innerHTML += `${k}_`
-            k++;
-        }
+// let button9 = document.querySelector('.b-9');
+// let out9 = document.querySelector('.out-9');
+// let i91 = document.querySelector('.i-91');
+// let i92 = document.querySelector('.i-92');
+// function t9() {
+//     if (i91.value < i92.value) {
+//         let k = i91.value;
+//         while (k <= i92.value) {
+//             out9.innerHTML += `${k}_`
+//             k++;
+//         }
+//     }
+//     else {
+//         let k = i92.value;
+//         while (k <= i91.value) {
+//             out9.innerHTML += `${k}_`
+//             k++;
+//         }
+//     }
+// }
+// button9.onclick = t9;
+
+//TASK 10
+
+// let button10 = document.querySelector('.b-10');
+// let out10 = document.querySelector('.out-10');
+// function t10() {
+//     let k = 1950;
+//     while (k < 1966) {
+//         out10.innerHTML += `${k}_`
+//         k = k + 2
+//     }
+// }
+// button10.onclick = t10;
+
+//TASK 11 :(
+
+let button11 = document.querySelector('.b-11');
+let divs11 = document.querySelector('.div-11');
+let out11 = document.querySelector('.out-11');
+let res = '';
+function t11() {
+    let k;
+    while (k < divs11.length) {
+        // console.log(divs11[i].innerHTML)
+        res = res + divs11[i].innerHTML + "_";
     }
-    else {
-        let k = i92.value;
-        while (k <= i91.value) {
-            out9.innerHTML += `${k}_`
-            k++;
-        }
-    }
+    out11.innerHTML = res;
 }
-button9.onclick = t9;
+button11.onclick = t11;
