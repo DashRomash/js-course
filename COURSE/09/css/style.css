@@ -1,0 +1,20 @@
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 350px;
+}
+
+.out {
+    width: 100px;
+    height: 45px;
+    border: 2px solid lightgrey;
+    border-radius: 6px;
+}
+
+.three {
+    background-color: orange;
+}
+
+.two {}
+
+.one {}
