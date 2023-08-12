@@ -59,19 +59,39 @@ button6.onclick = function t6() {
     out6.innerHTML += a;
 }
 
-//TASK7 цикл не работает
+//TASK7 \7-8-9-10 почти одинаковые задачи и они не получаются
 
 let button7 = document.querySelector('.b-7');
+let out7 = document.querySelector('.out-7');
 function t7() {
-    for (i = 0; i < 3; i++) {
-        document.querySelector('.out-7').classList.add('three')
+    let k;
+    while (k < out7.length) {
+        out7.classList.add('three');
     }
 }
 button7.onclick = t7;
 
 
+//TASK8 цикл !
+
+let button8 = document.querySelector('.b-8');
+function t8() {
+    for (i = 1; i < 4; i++) {
+        document.querySelector('.out-8').classList.toggle('three');
+    }
+}
+button8.onclick = t8;
 
 
+//TASK9
+
+let out9 = document.querySelector('.out-9');
+function t9() {
+    out9[i].onclick.classList.add('three');
+}
+out9[i].onclick = t9;
 
 
+//TASK10
 
+let out11 = document.querySelector('.out-9');
