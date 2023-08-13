@@ -14,9 +14,15 @@
 
 .three {
     background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .twelve {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: peachpuff;
     color: royalblue;
 }

@@ -106,9 +106,8 @@ for (i = 0; i < out10.length; i++) {
     out10[i].onclick = t10;
 }
 
-
-
 // //TASK11 получивси!!!
+
 let out11 = document.querySelector('.out-11');
 let button11 = document.querySelector('.b-11');
 function f11() {
@@ -117,3 +116,88 @@ function f11() {
     out11.append(div);
 }
 button11.onclick = f11;
+
+// //TASK12 класс не присвоилси как будто бы
+let button12 = document.querySelector('.b-12');
+let out12 = document.querySelector('.out-12');
+function f12() {
+    let div = document.createElement('div');
+    div.textContent = '12';
+    div.classList.add = ('twelve');
+    out12.append(div);
+}
+button12.onclick = f12;
+
+//TASK13
+
+let button13 = document.querySelector('.b-13');
+let out13 = document.querySelector('.out-13');
+function f13() {
+    let div = document.createElement('div');
+    div.textContent = 'pushMe';
+    div.classList.add = ('three');
+    div.onclick = function f13_1() {
+        console.log('Molodec');
+    }
+    out13.append(div);
+}
+button13.onclick = f13;
+
+//TASK14
+
+let button14 = document.querySelector('.b-14');
+let out14 = document.querySelector('.out-14');
+function f14() {
+    let div = document.createElement('div');
+    div.textContent = '14';
+    div.classList.add = ('three');
+    out14.append(div);
+}
+button14.onclick = f14;
+
+//TASK15
+
+let button15 = document.querySelector('.b-15');
+let out15 = document.querySelector('.out-15');
+function f15() {
+    let div = document.createElement('div');
+    div.textContent = '15';
+    div.classList.add = ('three');
+    out15.before(div);
+}
+button15.onclick = f15;
+
+//TASK16
+
+let button16 = document.querySelector('.b-16');
+let out16 = document.querySelector('.out-16');
+function f16() {
+    let div = document.createElement('div');
+    div.textContent = '16';
+    div.classList.add = ('three');
+    out16.after(div);
+}
+button16.onclick = f16;
+
+//TASK17
+
+let button17 = document.querySelector('.b-17');
+let out17 = document.querySelector('.out-17');
+function f17() {
+    let div = document.createElement('div');
+    div.textContent = '17';
+    div.classList.add = ('three');
+    out17.replaceWith(div);
+}
+button17.onclick = f17;
+
+//TASK18
+
+let button18 = document.querySelector('.b-18');
+let out18 = document.querySelector('.out-18');
+let p18 = document.querySelector('.p-18');
+function f18() {
+    let a = p18.getAttribute('data');
+    out18.innerHTML = a;
+}
+button18.onclick = f18;
