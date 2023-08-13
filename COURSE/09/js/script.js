@@ -201,3 +201,25 @@ function f18() {
     out18.innerHTML = a;
 }
 button18.onclick = f18;
+
+//TASK19 gpt: let i, p19[i], `${a} `
+
+let button19 = document.querySelector('.b-19');
+let out19 = document.querySelector('.out-19');
+let p19 = document.querySelectorAll('.p-19');
+function f19() {
+    for (let i = 0; i < p19.length; i++) {
+        let a = p19[i].getAttribute('data');
+        out19.innerHTML += `${a} `;
+    }
+}
+button19.onclick = f19;
+
+//TASK20  не вышло
+
+let button20 = document.querySelector('.b-20');
+let out20 = document.querySelector('.out-20');
+function f20() {
+    out20.setAttribute('data - title', go);
+}
+button20.onclick = f20;
