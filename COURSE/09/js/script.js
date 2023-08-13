@@ -59,39 +59,55 @@ button6.onclick = function t6() {
     out6.innerHTML += a;
 }
 
-//TASK7 \7-8-9-10 почти одинаковые задачи и они не получаются
+//TASK7 
 
 let button7 = document.querySelector('.b-7');
-let out7 = document.querySelector('.out-7');
+let out7 = document.querySelectorAll('.out-7');
 function t7() {
-    let k;
+    let k = 0;
     while (k < out7.length) {
-        out7.classList.add('three');
+        out7[k].classList.add('three');
+        // console.log(out7[k]);
+        k++;
     }
 }
 button7.onclick = t7;
 
 
-//TASK8 цикл !
+//TASK8 
 
 let button8 = document.querySelector('.b-8');
+let out8 = document.querySelectorAll('.out-8');
 function t8() {
-    for (i = 1; i < 4; i++) {
-        document.querySelector('.out-8').classList.toggle('three');
+    for (i = 0; i < 3; i++) {
+        out8[i].classList.toggle('three');
     }
 }
 button8.onclick = t8;
 
 
-//TASK9
+//TASK9 не догадалась вынести цикл за функцию
 
-let out9 = document.querySelector('.out-9');
+let out9 = document.querySelectorAll('.out-9');
 function t9() {
-    out9[i].onclick.classList.add('three');
+    this.classList.add('three');
 }
-out9[i].onclick = t9;
+for (i = 0; i < out9.length; i++) {
+    out9[i].onclick = t9;
+}
+
+//TASK9 
+
+let out10 = document.querySelectorAll('.out-10');
+function t10() {
+    this.classList.toggle('three');
+}
+for (i = 0; i < out10.length; i++) {
+    out10[i].onclick = t10;
+}
 
 
-//TASK10
 
-let out11 = document.querySelector('.out-9');
+// //TASK10
+
+// let out11 = document.querySelector('.out-9');
