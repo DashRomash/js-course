@@ -96,7 +96,7 @@ for (i = 0; i < out9.length; i++) {
     out9[i].onclick = t9;
 }
 
-//TASK9 
+//TASK10 
 
 let out10 = document.querySelectorAll('.out-10');
 function t10() {
@@ -108,6 +108,12 @@ for (i = 0; i < out10.length; i++) {
 
 
 
-// //TASK10
-
-// let out11 = document.querySelector('.out-9');
+// //TASK11 получивси!!!
+let out11 = document.querySelector('.out-11');
+let button11 = document.querySelector('.b-11');
+function f11() {
+    let div = document.createElement('div');
+    div.textContent = '25';
+    out11.append(div);
+}
+button11.onclick = f11;
