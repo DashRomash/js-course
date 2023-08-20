@@ -109,6 +109,17 @@ button10.onclick = function t10() {
 }
 
 
+//TASK11
+let button11 = document.querySelector('.b-11');
+let ar11 = [2, 3, 4, 5, 6, 7];
+let out11 = document.querySelector('.out-11');
+button11.onclick = function t11() {
+    let a11 = ar11[2];
+    ar11[2] = ar11[4];
+    console.log(ar11);
+    ar11[4] = a11;
 
+    out11.innerHTML = ar11;
+}
 
 
