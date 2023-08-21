@@ -122,4 +122,24 @@ button11.onclick = function t11() {
     out11.innerHTML = ar11;
 }
 
+//TASK12
+let button12 = document.querySelector('.b-12');
+let ar12 = ['test', 'west', 'list', 'class', 'best'];
+let out12 = document.querySelector('.out-12');
+button12.onclick = function t12() {
+    let a12 = ar12[0];
+    ar12[0] = ar12[ar12.length - 1];
+    ar12[ar12.length - 1] = a12;
+    out12.innerHTML = ar12;
+}
 
+//TASK13
+let button13 = document.querySelector('.b-13');
+let ar13 = ['test', 'west', 'list', 'class', 'best'];
+let out13 = '';
+button13.onclick = function t13() {
+    for (let i = 0; i < ar13.length; i++) {
+        out13 += `${i} ${ar13[i]}`
+    }
+    document.querySelector('.out-13').innerHTML = out13;
+}
