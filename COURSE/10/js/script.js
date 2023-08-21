@@ -221,11 +221,52 @@ let button17 = document.querySelector('.b-17');
 let ar17 = [3, 0, 2, 6, 0, 1, 3, 1, 9, 0, 2, 0];
 let out17 = document.querySelector('.out-17');
 let s17 = [];
-function t17() {
+button17.onclick = function t17() {
     for (let i = 0; i < ar17.length; i++) {
         if (ar17[i] > 3) {
             s17.push(ar17[i]);
         }
     }
     out17.innerHTML = s17.length;
+}
+//TASK18
+let button18 = document.querySelector('.b-18');
+let ar18 = [15, 24, 13, 78, 21, 4, 45, 67];
+let out18 = document.querySelector('.out-18');
+let max = '';
+button18.onclick = function t18() {
+    for (let i = 0; i < ar18.length; i++) {
+        max = ar18[0];
+        if (ar18[i] > max) {
+            max = ar18[i];
+        }
+    }
+    out18.innerHTML = max;
+}
+
+//TASK19  не работает, и чат как то всрато обьясняет, не про то
+let button19 = document.querySelector('.b-19');
+let ar19 = [15, 424, 313, 78, 241, 4, 45, 67]
+let out19 = document.querySelector('.out-19');
+let min = '';
+button19.onclick = function t19() {
+    for (let i = 0; i < ar19.length; i++) {
+        min = ar19[0];
+        if (ar19[i] < min) {
+            min = i;
+        }
+    }
+    out19.innerHTML = min;
+}
+
+//TASK20
+let button20 = document.querySelector('.b-20');
+let ar20 = [4, 5, 6, 7, 8, 8, 10];
+let out20 = document.querySelector('.out-20');
+let sum = 0;
+button20.onclick = function t20() {
+    for (let i = 0; i < ar20.length; i++) {
+        sum = sum + ar20[i];
+    }
+    out20.innerHTML = sum;
 }
