@@ -143,3 +143,89 @@ button13.onclick = function t13() {
     }
     document.querySelector('.out-13').innerHTML = out13;
 }
+
+//TASK14 мое решение невероятно тупое,чат предлагает супер простое 
+//и здравое решение
+// let button14 = document.querySelector('.b-14');
+// let ar14 = [1, 2, 3, 'hello', 66];
+// let out14 = document.querySelector('.out-14');
+// button14.onclick = function t14() {
+//     let a14 = ar14[0];
+//     let b14 = ar14[1];
+//     let c14 = ar14[3];
+//     let d14 = ar14[4];
+//     ar14[0] = d14;
+//     ar14[1] = c14;
+//     ar14[3] = b14;
+//     ar14[4] = a14;
+//     out14.innerHTML = ar14;
+// }
+let button14 = document.querySelector('.b-14');
+let ar14 = [1, 2, 3, 'hello', 66];
+let out14 = '';
+button14.onclick = function t14() {
+    for (let i = ar14.length - 1; i >= 0; i--) {
+        out14 += ar14[i] + ' ';
+    }
+    document.querySelector('.out-14').innerHTML = out14;
+}
+
+//TASK15
+let button15 = document.querySelector('.b-15');
+let out15 = '';
+let ar15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
+function t15() {
+    for (let i = 0; i < ar15.length; i++) {
+        if (ar15[i] > 0) {
+            out15 += ar15[i] + ' ';
+        }
+    }
+    document.querySelector('.out-15').innerHTML = out15;
+}
+button15.onclick = t15;
+
+//TASK16 удивительно, но код сработал, правда результат с запятыми
+let button16 = document.querySelector('.b-16');
+let ar16 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
+let ar16_odd = [];
+let ar16_even = [];
+let out16even = document.querySelector('.out-16-even');
+let out16odd = document.querySelector('.out-16-odd');
+// button16.onclick = function t16() {
+//     for (let i = 0; i < ar16.length; i++) {
+//         if (ar16[i] % 2 == 0) {
+//             ar16_even[i] = ar16[i];
+//         }
+//         else {
+//             ar16_odd[i] = ar16[i];
+//         }
+//     }
+//     out16even.innerHTML = ar16_even;
+//     out16odd.innerHTML = ar16_odd;
+// }
+//TASK16 чата; так канешно же красивее
+button16.onclick = function t16() {
+    for (let i = 0; i < ar16.length; i++) {
+        if (ar16[i] % 2 === 0) {
+            ar16_even.push(ar16[i]);
+        } else {
+            ar16_odd.push(ar16[i]);
+        }
+    }
+    out16even.textContent = ar16_even.join(' ');
+    out16odd.textContent = ar16_odd.join(' ');
+}
+
+//TASK17
+let button17 = document.querySelector('.b-17');
+let ar17 = [3, 0, 2, 6, 0, 1, 3, 1, 9, 0, 2, 0];
+let out17 = document.querySelector('.out-17');
+let s17 = [];
+function t17() {
+    for (let i = 0; i < ar17.length; i++) {
+        if (ar17[i] > 3) {
+            s17.push(ar17[i]);
+        }
+    }
+    out17.innerHTML = s17.length;
+}
