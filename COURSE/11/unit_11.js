@@ -223,3 +223,64 @@ function f12() {
 button12.onclick = function () {
     f12()
 }
+
+//TASK13
+let button13 = document.querySelector('.b-13');
+let out13 = document.querySelector('.out-13');
+let d13 = [6, 0, 22, 1, 4, 76];
+let d131 = [];
+function f13() {
+    for (let i = d13.length - 1; i >= 0; i--) {
+        d131.push(d13[i]);
+    }
+    out13.textContent = d131.join('. ');
+}
+button13.onclick = function () {
+    f13()
+}
+//TASK14
+let button14 = document.querySelector('.b-14');
+let out14 = document.querySelector('.out-14');
+let in14 = document.querySelector('.i-14');
+let d14 = [];
+function f14() {
+    let a = +in14.value;
+    for (let i = 0; i < a; i++) {
+        d14.push(1);
+    }
+    out14.textContent = d14.join('. ')
+}
+button14.onclick = function () {
+    f14()
+}
+
+//TASK15
+let button15 = document.querySelector('.b-15');
+let out15 = document.querySelector('.out-15');
+let in15 = document.querySelector('.i-15');
+let d15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
+function f15() {
+    let a = +in15.value;
+    if (d15.indexOf(a) === -1) {
+        d15.push(a);
+    }
+    out15.textContent = d15.join('. ')
+}
+button15.onclick = function () {
+    f15()
+}
+
+//TASK16 код не работает. ошибки нет. чат говорит ошибки нет
+let button16 = document.querySelector('.b-16');
+let out16 = document.querySelector('.out-16');
+let d16 = [];
+let d161 = [5, 6, 7, 8, 9];
+let d162 = [23, 24, 56, 87];
+function f16() {
+
+    d16 = d161.concat(d162);
+
+}
+button16.onclick = function () {
+    f16()
+}
