@@ -279,8 +279,68 @@ let d162 = [23, 24, 56, 87];
 function f16() {
 
     d16 = d161.concat(d162);
-
+    out16.textContent = d16.join('. ')
 }
 button16.onclick = function () {
     f16()
+}
+
+//TASK17
+let button17 = document.querySelector('.b-17');
+let out17 = document.querySelector('.out-17');
+let d17 = [];
+let d171 = ['a', 'b', 'c', 'd'];;
+let d172 = [1, 2, 3, 4, 5];
+function f17() {
+    for (let i = 0; i < d171.length; i++) {
+        d17.push(d171[i]);
+    }
+    for (let i = 0; i < d171.length; i++) {
+        d17.push(d172[i]);
+    }
+    out17.textContent = d17.join('. ')
+}
+button17.onclick = function () {
+    f17()
+}
+
+//TASK18
+let button18 = document.querySelector('.b-18');
+let out18 = document.querySelector('.out-18');
+let in18 = document.querySelector('.i-18');
+let d18 = ['b', 'c', '45', 'e', 'z', 'y'];
+function f18() {
+    let a = in18.value;
+    out18.textContent = d18.includes(a);
+}
+button18.onclick = function () {
+    f18()
+}
+
+//TASK19
+let button19 = document.querySelector('.b-19');
+let out19 = document.querySelector('.out-19');
+let d19 = ['Your', 'payment', 'method', 'will', 'automatically', 'be', 'charged', 'in', 'advance', 'every'];
+function f19() {
+    let maxString = '';
+    for (let i = 0; i < d19.length; i++) {
+        if (d19[i].length > maxString.length) {
+            maxString = d19[i];
+        }
+    }
+    out19.textContent = maxString;
+}
+button19.onclick = function () {
+    f19()
+}
+
+//TASK20
+let button20 = document.querySelector('.b-20');
+let out20 = document.querySelector('.out-20');
+let d20 = [4, 5, 6, 7, 8, 9, 10];
+function f20() {
+    out20.textContent = d20.join('');
+}
+button20.onclick = function () {
+    f20()
 }
