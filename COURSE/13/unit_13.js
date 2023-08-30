@@ -174,9 +174,9 @@ function f8() {
 
 document.querySelector('.b-8').onclick = f8;
 
-// Task 9
+// Task 9 не работает
 // Добавьте input .i-9. При нажатии b-9 выполняете функцию f9. Функция должна вывести в out-9 все ключи массива a9, которые содержат значение, равное значению в input.i-9. Вывод через пробел. Если значений - нет - то выводить пустую строку.
-
+let i9 = document.querySelector('.i-9');
 let a9 = {
     "b": 17,
     "e": 22,
@@ -186,7 +186,18 @@ let a9 = {
 };
 
 function f9() {
+    let a = i9.value;
+    let out = '';
+    for (let key in a9) {
+        if (a9[key] === a) {
+            out += `${key} `;
+        }
+    }
+    // if (a9[key] !== a) {
+    //     out = ' ';
+    // }
 
+    document.querySelector('.out-9').innerHTML = out;
 }
 
 document.querySelector('.b-9').onclick = f9;
@@ -195,18 +206,22 @@ document.querySelector('.b-9').onclick = f9;
 // Давайте напишем полезную функцию f10, которая проверяет есть ли значение в ассоциативном массиве. Фукнция должна возвращать true если есть, и false если нет. Массив и значение передавать функции в качестве параметров.
 
 function f10(arr, val) {
-
-    //return true;
-    //return false;
+    for (let key in arr) {
+        if (arr[key] === val) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
-
 document.querySelector('.b-10').onclick = () => {
     let a10 = {
         "k": 22,
         "d": 54,
         "m": 22,
     }
-    document.querySelector('.out-10').innerHTML = f10(a10, 22);
+    document.querySelector('.out-10').innerHTML = f10(a10, 2);
 };
 
 
