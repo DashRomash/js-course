@@ -285,8 +285,16 @@ let a13 = {
     'ivan': 6
 };
 
-function f13() {
 
+function f13() {
+    let sum = 0;
+    for (let key in a13) {
+
+        if (typeof a13[key] === 'number') {
+            sum += a13[key];
+        }
+    }
+    document.querySelector('.out-13').innerHTML = sum;
 }
 
 document.querySelector('.b-13').onclick = f13;
@@ -303,7 +311,15 @@ let a14 = {
 };
 
 function f14() {
+    let a = '';
+    console.log('Функция вызвалась')
+    for (let key in a14) {
 
+        a += `${a14[key][0]} `
+
+
+    }
+    document.querySelector('.out-14').innerHTML = a;
 }
 
 document.querySelector('.b-14').onclick = f14;
@@ -321,7 +337,11 @@ let a15 = {
 };
 
 function f15() {
-
+    let a = '';
+    for (let key in a15) {
+        a += `${a15[key].join(' ')}`;
+    }
+    document.querySelector('.out-15').innerHTML = a;
 }
 
 document.querySelector('.b-15').onclick = f15;
@@ -345,7 +365,11 @@ let a16 = {
 }
 
 function f16() {
-
+    let a = '';
+    for (let key in a16) {
+        a += `${a16[key]['name']} `;
+    }
+    document.querySelector('.out-16').innerHTML = a;
 }
 
 document.querySelector('.b-16').onclick = f16;
@@ -361,7 +385,7 @@ let a17 = {
     },
     "iiss7j": {
         "name": "Petr",
-        "age": 26,
+        "age": 31,
     },
     "s3s8sj": {
         "name": "Serg",
@@ -370,14 +394,22 @@ let a17 = {
 }
 
 function f17() {
-
+    let a = '';
+    for (let key in a17) {
+        if (a17[key]['age'] > 30) {
+            a += `${a17[key]['name']} `
+        }
+    }
+    document.querySelector('.out-17').innerHTML = a;
 }
 
 document.querySelector('.b-17').onclick = f17;
 
 // Task 18
 // При нажатии b-18 выполняете функцию f18. Функция должна в out-18 вывести станции метро из массива a18 той ветки, которую пользователь ввел в i-18. Вывод станций - через пробел. Если ветка не найдена выводите пустую строку.
-
+let in18 = document.querySelector('.i-18');
+let b18 = in18.value;
+let c = '';
 let a18 = {
     "red": ['Akademmistechko', 'Nyvky', 'Universytet', 'Lisova'],
     "blue": ['Minska', 'Obolon', 'Pochaina', 'Holosiivska'],
@@ -385,13 +417,21 @@ let a18 = {
 }
 
 function f18() {
-
+    for (let key in a18) {
+        if (key === b18) {
+            c = a18[key].join(' ');
+        }
+    }
+    document.querySelector('.out-18').innerHTML = c;
 }
-
+document.querySelector('.b-18').onclick = f18;
 // Task 19
 // При нажатии b-19 выполняете функцию f19. Функция должна в out-19 вывести цвет ветки станции которую пользователь ввел в i-19. Пользователь может вводить текст как с большой, так и с маленькой буквы. Если ветка не найдена - выводите пустую строку.
 // Пользователь ввел Lisova - вывод red, ввел Obolon - вывод blue.
 
+let in19 = document.querySelector('.i-19');
+let b19 = in19.value.toLowerCase();//чатушка надоумил
+let d = '';
 let a19 = {
     "red": ['Akademmistechko', 'Nyvky', 'Universytet', 'Lisova'],
     "blue": ['Minska', 'Obolon', 'Pochaina', 'Holosiivska'],
@@ -399,8 +439,16 @@ let a19 = {
 }
 
 function f19() {
-
+    console.log('в функцию вошли')
+    for (let key in a19) {
+        console.log('в цикл вошли')
+        if (a19[key].includes(b19)) {//.includes не догадалась бы
+            d = key;
+        }
+    }
+    document.querySelector('.out-19').innerHTML = d;
 }
+
 
 document.querySelector('.b-19').onclick = f19;
 
