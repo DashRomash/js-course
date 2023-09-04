@@ -1,0 +1,38 @@
+.text-center {
+    text-align: center;
+}
+
+.homework-wrapper {
+    display: flex;
+    width: 450px;
+    height: 300px;
+    margin-left: 50px;
+    margin-top: 50px;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.select {}
+
+.weather-table {
+    height: 200px;
+    width: 100px;
+    border: 2px solid rgb(141, 203, 229);
+    border-radius: 6px;
+}
+
+.package {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.city-name {
+    color: rgb(130, 198, 227);
+    font-weight: 200;
+    font-size: 20;
+
+
+}
