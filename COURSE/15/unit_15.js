@@ -45,7 +45,10 @@ document.querySelector('.b-3').onclick = f3;
 
 let s4 = new Set(['a', 'b', 'c', 'z']);
 
-const f4 = () => { }
+const f4 = () => {
+    let a4 = document.querySelector('.i-4').value;
+    document.querySelector('.out-4').innerHTML = s4.has(a4);
+}
 
 document.querySelector('.b-4').onclick = f4;
 
@@ -55,7 +58,9 @@ document.querySelector('.b-4').onclick = f4;
 
 let s5 = new Set(['a', 'b', 'c', 'z', 'a2', 'b2', 'c2', 'z2']);
 
-const f5 = () => { }
+const f5 = () => {
+    document.querySelector('.out-5').innerHTML = s5.size;
+}
 
 document.querySelector('.b-5').onclick = f5;
 
@@ -64,14 +69,25 @@ document.querySelector('.b-5').onclick = f5;
 
 let a6 = [1, 2, 3, 4, 5, 3, 4, 5, 2, 4, 5, 3, 24, 5, 2, 4, 56, 4, 3, 2, 335, 2, 23, 41, 3, 4, 1, 1, 4, 2, 2, 4, 5, 24, 5, 3, 22, 56];
 
-const f6 = () => { }
+const f6 = () => {
+    let s6 = new Set(a6);
+    document.querySelector('.out-6').innerHTML = s6.size;
+}
 
 document.querySelector('.b-6').onclick = f6;
 
 // Task 7
 // При нажатии b-7 выполняете функцию f7. Функция должна получать из i-7 значение пароля и проверять, чтобы пользователь в строке пароля использовал не повторяющиеся символы. Если символы уникальны, а длина пароля больше ( строго) 6 то выводите в out-7 число 1. Если есть повторяющиеся символы, или длина меньше или равна 6 - то выводите 0. Для проверки уникальности символов используйте Set.
 
-const f7 = () => { }
+const f7 = () => {
+    let a7 = document.querySelector('.i-7').value;
+    if (a7.length > 6 && new Set(a7).size === a7.length) {// это условие подсказал гпт
+        document.querySelector('.out-7').textContent = '1';
+    }
+    else {
+        document.querySelector('.out-7').textContent = '0';
+    }
+}
 
 document.querySelector('.b-7').onclick = f7;
 
@@ -81,7 +97,14 @@ document.querySelector('.b-7').onclick = f7;
 let s8 = new Set([1, 2, 3, 4, 5, 3, 4, 7, 9, 5, 7, 8, 9, 23, 45, 5, 2, 4, 5, 3, 24, 5, 2, 4, 56, 4, 3, 2, 335, 2, 23, 41, 3, 4, 1, 1, 4, 2, 2, 4, 5, 24, 5, 3, 22, 56]);
 let ar8 = [];
 
-const f8 = () => { }
+const f8 = () => {
+    for (let item of s8) {
+        if (item > 5) {
+            ar8.push(item);
+        }
+    }
+    console.log(ar8);
+}
 
 document.querySelector('.b-8').onclick = f8;
 
