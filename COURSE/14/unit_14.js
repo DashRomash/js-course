@@ -1,5 +1,34 @@
 //key  b28e938fe926b887562426062e17a6de;
 // moy https://api.openweathermap.org/data/2.5/weather?id=524925&appid=b28e938fe926b887562426062e17a6de
+
+
+//чат предложил, очень сложно и непонятно
+// const options = [
+//     { value: "485763", text: 'Sverdlovskiy' },
+//     { value: "562319", text: 'Fryazino' },
+//     { value: "571557", text: 'Bronnitsy' },
+//     { value: "547523", text: 'Klin' },
+//     { value: "499099", text: 'Samara' }
+// ]
+
+// const selectElement = document.createElement('select');
+// selectElement.id = 'city';
+
+// options.forEach(option => {
+//     const optionElement = document.createElement('option');
+//     optionElement.value = option.value;
+//     optionElement.textContent = option.text;
+//     selectElement.appendChild(optionElement);
+// });
+
+// document.querySelector('.select').appendChild(selectElement);
+
+
+// сама пытаюсь, подглядывала чуууууть чуть , но все поняла, ошибки исправила
+let selectElement = document.createElement('select');
+selectElement.id = 'city';
+
+
 const options = [
     { value: "485763", text: 'Sverdlovskiy' },
     { value: "562319", text: 'Fryazino' },
@@ -7,18 +36,14 @@ const options = [
     { value: "547523", text: 'Klin' },
     { value: "499099", text: 'Samara' }
 ]
-
-const selectElement = document.createElement('select');
-selectElement.id = 'city';
-
-options.forEach(option => {
-    const optionElement = document.createElement('option');
-    optionElement.value = option.value;
-    optionElement.textContent = option.text;
+for (let i = 0; i < options.length; i++) {
+    let optionElement = document.createElement('option');
+    optionElement.value = options[i].value;
+    optionElement.text = options[i].text;
     selectElement.appendChild(optionElement);
-});
-
+}
 document.querySelector('.select').appendChild(selectElement);
+
 
 
 const param = {
