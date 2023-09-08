@@ -126,7 +126,10 @@ document.querySelector('.b-9').onclick = () => {
 // Task 10
 // При нажатии b-10 выполняете функцию f10. Функция должна принимать набор set в качестве параметра и выводить его в указанный элемент. Элемент указывается как второй параметр функции f10. Вывод значений - через пробел.
 
-const f10 = (out_set, elem) => { }
+const f10 = (out_set, elem) => {
+    let b10 = Array.from(out_set).join(' ');
+    document.querySelector(elem).textContent = b10;
+}
 
 document.querySelector('.b-10').onclick = () => {
     let a10 = new Set(['4', '5', '6']);
@@ -153,7 +156,12 @@ document.querySelector('.b-11').onclick = f11;
 let str12 = 'The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children';
 
 const f12 = () => {
-
+    let b12 = str12.split('');
+    let s12 = new Set();
+    for (let i = 0; i < b12.length; i++) {
+        s12.add(b12[i]);
+    }
+    return s12;
 }
 
 document.querySelector('.b-12').onclick = () => {
@@ -171,6 +179,15 @@ let str13 = 'abbat pro';
 
 
 const f13 = () => {
+    let s13 = new Set();
+    for (let i = 0; i < str13.length; i++) {
+        if (s13.has(str13[i])) {
+            s13.add(str13[i]);
+        }
+        else {
+
+        }
+    }
 
     // return
 }
@@ -178,3 +195,24 @@ const f13 = () => {
 document.querySelector('.b-13').onclick = () => {
     console.log(f13());
 }
+
+
+// const f13 = () => {
+//     let s13 = new Set();
+//     for (let i = 0; i < str13.length; i++) {
+//         if (s13.has(str13[i])) {
+//             s13.delete(str13[i]); // Удаляем символ из Set.
+//             s13.add(str13[i], s13.get(str13[i]) + 1); // Добавляем его обратно с увеличенным счётчиком.
+//         } else {
+//             s13.add(str13[i], 1); // Добавляем символ в Set с начальным счётчиком 1.
+//         }
+//     }
+
+//     const result = {}; // Создаём пустой объект для результата.
+
+//     s13.forEach((count, char) => {
+//         result[char] = count; // Заполняем объект результатом.
+//     });
+
+//     return result; // Возвращаем объект с подсчитанными символами.
+// }
