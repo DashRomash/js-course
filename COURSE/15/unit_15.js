@@ -108,11 +108,15 @@ const f8 = () => {
 
 document.querySelector('.b-8').onclick = f8;
 
-// Task 9
+// Task 9 chat pomog
 //  При нажатии b-9 выполняете функцию f9. Функция должна принимать набор our_set в качестве параметра, преобразовывать его в строку, причем после каждого символа строки должен быть пробел. Функция должна возвращать результирующую строку. 
 // В нашем примере результат должен быть 9 8 7 6 5 
 
-const f9 = our_set => { }
+const f9 = our_set => {
+    let arr9 = Array.from(our_set);
+    let b9 = arr9.join(' ');
+    return b9;
+}
 
 document.querySelector('.b-9').onclick = () => {
     let s9 = new Set([9, 8, 7, 6, 5]);
