@@ -72,9 +72,15 @@ document.querySelector('.b-5').addEventListener('click', () => {
 //При нажатии .b-6 выполняете функцию f6. Функция должна превратить массив a6 в одномерный. Результат вывести в out-6 через пробел.
 
 let a6 = [[1, 2], [3, 4], [5, 6]];
+let a61 = [];
 
 function f6() {
-
+    for (let i = 0; i < a6.length; i++) {
+        for (let k = 0; k < a6[i].length; k++) {
+            a61.push(a6[i][k]);
+        }
+    }
+    document.querySelector('.out-6').textContent = a61;
 }
 
 document.querySelector('.b-6').addEventListener('click', f6);
@@ -83,9 +89,14 @@ document.querySelector('.b-6').addEventListener('click', f6);
 //При нажатии .b-7 выполняете функцию f7. Функция должна переиндексировать массив a7. Что имеется ввиду. Сейчас у нас обычный массив, который содержит вложенные объекты. Вам необходимо сделать из a7 объект, где ключи - значения id из вложенных массивов, а значения - имя (т.е { 23 : Ivan, 45 : Petr}. Функция должна возвращать результирующий массив.
 
 let a7 = [{ id: 23, name: 'Ivan' }, { id: 45, name: 'Petr' }];
+let a71 = [];
 
 function f7() {
-
+    let result = {};
+    for (let item of a7) {
+        result[item.id] = item.name;
+    }
+    return result;
 }
 
 document.querySelector('.b-7').addEventListener('click', () => {
