@@ -89,21 +89,22 @@ document.querySelector('.b-4').onclick = () => {
 
 
 
-// Task 5 ============================================
+// Task 5 ==============НЕ РАЗОБРАЛАСЬ СО СТРОКОЙ==============================
 /*  Дан массив a5 = [3, 14, 15, 92]. C помощью filter переберите массив и создайте a5_res, который содержит только четные числа из a5. Возвратите a5_res. Действия должны запускаться при вызове функции t5. Проверьте, чтобы функция корректно работала со строками, т.е. '6' не должно попасть в результирующий массив.  */
 
 let a5 = [3, 14, 15, 92, '6'];
 
-function t5Filter() {
-    return typeof elem === 'number';
+function t5Filter(elem) {
+    typeof elem === 'number';
+    if (elem % 2 == 0) {
+        return true;
+    }
+
 }
+
 function t5() {
-    let a5_res = a5.filter(function (item, t5Filter) {
-        if (item % 2 == 0) {
-            return true;
-        }
-    })
-    return a4_res;
+    let a5_res = a5.filter(t5Filter)
+    return a5_res;
 }
 
 document.querySelector('.b-5').onclick = () => {
@@ -116,9 +117,15 @@ document.querySelector('.b-5').onclick = () => {
 /*  Дан массив a6 = [3, 14, 15, 92, "6", "5", "hello", 32]. C помощью filter переберите массив a6 и создайте массив a6_res, который содержит только числа из a6, которые больше 14. Возвратите a6_res. Действия должны запускаться при вызове функции t6. */
 
 let a6 = [3, 14, 15, 92, "6", "5", "hello", 32];
+function t6Filter(elem) {
+    if (elem > 14) {
+        return true;
+    }
+}
 
 function t6() {
-
+    let a6_res = a6.filter(t6Filter);
+    return a6_res;
 }
 
 document.querySelector('.b-6').onclick = () => {
@@ -131,8 +138,12 @@ document.querySelector('.b-6').onclick = () => {
 
 let a7 = ['Alto`s Adventure', 'Angry Birds 2', 'Anno 2205', 'Assassin`s Creed Chronicles'];
 
-function t7() {
 
+function t7() {
+    let a7_res = a7.map(function (item) {
+        return item.toLowerCase();
+    });
+    return a7_res;
 }
 
 document.querySelector('.b-7').onclick = () => {
@@ -145,9 +156,16 @@ document.querySelector('.b-7').onclick = () => {
 let a8 = [3, 14, 15, 92, 7, 32, 59];
 
 function t8() {
-
+    let a8_res = [];
+    for (let index = 0; index < a8.length; index++) {
+        let item = a8[index];
+        // console.log(item);
+        if (item % 2 == 0) {
+            a8_res.push(index);
+        }
+    }
+    return a8_res;
 }
-
 document.querySelector('.b-8').onclick = () => {
     console.log(t8());
 }
@@ -160,6 +178,10 @@ document.querySelector('.b-8').onclick = () => {
 let a9 = ['Quantum Break', 'Gears of War 4', 'Mass Effect: Andromeda', 'Far Cry Primal'];
 
 function t9() {
+    a9.forEach(function toLowerCase(item, index, array) {
+        array[index] = item.toLowerCase();
+    });
+    return a9;
 
 }
 
@@ -175,6 +197,12 @@ document.querySelector('.b-9').onclick = () => {
 let a10 = [2, 13, 14, -7, 9, 5, 0, -2, 14];
 
 function t10() {
+    a10.forEach(function (item, index, array) {
+        if (item < 0) {
+            array[index] = 0;
+        }
+    })
+    return a10;
 
 
 }
