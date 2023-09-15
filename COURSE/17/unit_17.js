@@ -217,10 +217,13 @@ document.querySelector('.b-10').onclick = () => {
 let a11 = [2, 13, 14, -7, 9, 5, 0, -2, 14];
 
 function t11() {
-
-
+    a11.filter(function (item, index, array) {
+        if (index % 2 == 0) {
+            a11_res.push(item)
+        }
+    })
+    return a11_res;
 }
-
 document.querySelector('.b-11').onclick = () => {
     console.log(t11());
 }
@@ -228,12 +231,16 @@ document.querySelector('.b-11').onclick = () => {
 // Task 12 ============================================
 /*  Данa переменная a12 = [2, 13, 14, -7, 9, 5, 0, -2, 14]. С помощью метода Array.isArray определите является ли переменная a12 массивом. Если да - то функция возврaщает true, если нет false.*/
 
-let a12 = [2, 13, 14, -7, 9, 5, 0, -2, 14];
-// a12 = 8; // на этой переменной можно проверить работает или нет ваша функция.
+// let a12 = [2, 13, 14, -7, 9, 5, 0, -2, 14];
+let a12 = 8; // на этой переменной можно проверить работает или нет ваша функция.
 
 function t12() {
-
-
+    if (Array.isArray(a12)) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 document.querySelector('.b-12').onclick = () => {
@@ -248,6 +255,12 @@ let a13_num = 9;
 
 
 function t13() {
+    if (a13.includes(a13_num)) {
+        return true;
+    }
+    else {
+        return false;
+    }
 
 
 }
@@ -260,14 +273,17 @@ document.querySelector('.b-13').onclick = () => {
 /*  Дан массив a14 = ['c', 'C', 'd', 'e', 'E']. С помощью метода includes функция t14 должна определить, есть ли значение из переменной a14_sym в массиве. Если да - то функция возврaщает true, если нет false. Обратите внимание, функция должна искать независимо от регистра. Т.е. если в a14_sym будет строка 'd' то возвратить true, однако и на строку 'D' тоже возвратить true. */
 
 let a14 = ['c', 'C', 'd', 'e', 'E'];
-let a14_sym = 'e';
+let a14_sym = 'D';
 
 
 function t14() {
-
-
+    let lowCase = a14_sym.toLowerCase();
+    if (a14.includes(lowCase)) {
+        return true;
+    } else {
+        return false;
+    }
 }
-
 document.querySelector('.b-14').onclick = () => {
     console.log(t14());
 }
@@ -306,10 +322,14 @@ let a15 = [
         "pnum": 'tr786259'
     },
 ];
+function t15Filter(item, index, a15) {
+    if ('pnum'.length == 6) {
 
+    }
+}
 
 function t15() {
-
+    let a15_res = [];
 
 }
 
