@@ -73,13 +73,13 @@ document.querySelector('.b-3').onclick = () => {
 
 let a4 = [4, "3", 6, 7, "12", 34, "56", 78, 90, 11];
 
-function t4Filter() {
+function t4Filter(elem) {
     return typeof elem === 'number';
 }
 function t4() {
-    let a4_res = a4.filter(function (item, t4Filter) {
-        return true;
-    })
+    let a4_res = a4.filter(t4Filter)
+    // return true;
+
     return a4_res;
 }
 
