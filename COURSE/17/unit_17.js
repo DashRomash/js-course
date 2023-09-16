@@ -7,8 +7,8 @@ let a1_res = [],
     a6_res = [],
     a7_res = [],
     a8_res = [],
-    a11_res = [],
-    a15_res = [];
+    a11_res = [];
+// a15_res = []
 
 // нужно ли очищать данные переменные при запуске функции? Да, но именно очищать.
 
@@ -303,6 +303,7 @@ document.querySelector('.b-14').onclick = () => {
     },
 ]
 */
+let a15_res = [];
 
 let a15 = [
     {
@@ -322,14 +323,23 @@ let a15 = [
         "pnum": 'tr786259'
     },
 ];
-function t15Filter(item, index, a15) {
-    if ('pnum'.length == 6) {
-
+function t15Filter(item) {
+    if (item.pnum.length === 6) {
+        return true;
     }
+    else if (item.pnum.length === 0) {
+        return false;
+    }
+    else {
+        return false;
+    }
+
 }
 
 function t15() {
-    let a15_res = [];
+    let a15_res = a15.filter(t15Filter)
+    return a15_res;
+
 
 }
 
