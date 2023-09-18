@@ -50,17 +50,28 @@ document.querySelector('.b-3').onclick = t3;
 /*  На странице созданы 3 span.task-4 c атрибутом data. С помощью forEach переберите их и добавьте атрибуты в массив a4_res  Запускаться решение должно при вызове функции t4.*/
 
 function t4() {
-
+    let a4_res = [];
+    let a4 = document.querySelectorAll('.task-4');
+    a4.forEach(a4 => {
+        let a41 = a4.getAttribute('data');
+        a4_res.push(a41);
+    })
+    document.querySelector('.out-4').textContent = a4_res;
 }
 
 document.querySelector('.b-4').onclick = t4;
 
 
-// Task 5 ============================================
+// Task 5 =============НЕ сделала , не доделано===============================
 /*  На странице созданы 3 p.task-5 c атрибутом data. С помощью forEach переберите их и добавьте событие клик. Напишите функцию t5, которая будет запускаться при клике и добавлять атрибут data элемента, по которому кликнули в массив a5_res.*/
 
 function t5() {
-
+    let a5 = document.querySelectorAll('.task-5');
+    a5.forEach(elem => {
+        let dataValue = elem.getAttribute('data');
+        a5_res.push(dataValue);
+    })
+    document.querySelector('.out-5').textContent = a5_res;
 }
 
 document.querySelectorAll('.task-5').forEach(elem => {
@@ -73,7 +84,11 @@ document.querySelectorAll('.task-5').forEach(elem => {
 /*  Дана строка str6='helloworld' - преобразуйте ее в массив (c разбиением по буквам) и присвойте a6_res. Выведите на страницу. Запускаться решение должно при вызове функции t6. */
 
 function t6() {
+    // let a5_res = [];
+    let str6 = 'helloworld';
+    let a6_res = str6.split('');
 
+    document.querySelector('.out-6').textContent = a6_res;
 }
 
 document.querySelector('.b-6').onclick = t6;
@@ -83,7 +98,10 @@ document.querySelector('.b-6').onclick = t6;
 /*  Дана строка str7='hello world hi mazai' - преобразуйте ее в массив и разбейте по словам. Причем слова не должны содержать пробелов и присвойте a7_res. выведите на страницу.  Запускаться решение должно при вызове функции t7. */
 
 function t7() {
-
+    let str7 = 'hello world hi mazai';
+    let a7_res = str7.split();
+    document.querySelector('.out-7').textContent = a7_res;
+    console.log(a7_res);
 }
 
 document.querySelector('.b-7').onclick = t7;
@@ -92,7 +110,9 @@ document.querySelector('.b-7').onclick = t7;
 /*  Дан массив a8 = [1,2,66,77,15] - преобразуйте ее в строку. Разделитель - дефис. Результат присвойте a8_res. Запускаться решение должно при вызове функции t8. */
 
 function t8() {
-
+    let a8 = [1, 2, 66, 77, 15];
+    a8_res = a8.join('-');
+    document.querySelector('.out-8').textContent = a8_res;
 }
 
 document.querySelector('.b-8').onclick = t8;
@@ -102,7 +122,9 @@ document.querySelector('.b-8').onclick = t8;
 /*  Дан массив a9 = [['hi', 'mahai'], ['test', 'best']] - преобразуйте его в строку. Разделитель - дефис. Результат присвойте a9_res. Запускаться решение должно при вызове функции t9. Допускается лишний дефис в конце строки!!! */
 
 function t9() {
-
+    let a9 = [['hi', 'mahai'], ['test', 'best']];
+    a9_res = a9.map(innerArr => innerArr.join('-')).join('-');
+    document.querySelector('.out-9').textContent = a9_res;
 }
 
 document.querySelector('.b-9').onclick = t9;
@@ -112,7 +134,21 @@ document.querySelector('.b-9').onclick = t9;
 /*  Дан массив a10 = {name: ivan, age: 15, sex: 1, id: 45} - преобразуйте его в query строку ( так передаются GET параметры). Найдите описание что такое query строка самостоятельно. Разделитель - амперсанд. Результат присвойте a10_res. Запускаться решение должно при вызове функции t10. Допускается лишний амперсанд в конце строки!!! */
 
 function t10() {
-
+    let a10 = {
+        name: 'ivan',
+        age: 15,
+        sex: 1,
+        id: 45,
+        // get fullMan() {
+        //     return `${this.name} ${this.age} ${this.sex} ${this.id}`
+        // }
+    }
+    let string = '';
+    for (let key in a10) {
+        string += `${key}=${a10[key]}&`;
+    }
+    a10_res = string;
+    document.querySelector('.out-10').textContent = a10_res;
 }
 
 document.querySelector('.b-10').onclick = t10;
