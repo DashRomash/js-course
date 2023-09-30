@@ -107,18 +107,23 @@ function t6(event) {
 document.querySelector('.i-6').onkeypress = t6;
 
 
-// Task 7 ============================================
+// Task 7 ================приемчик подсмотрела============================
 /*  Дан input .i-7. Напишите функцию t7, которая выводит в .out-7 случаный символ из массива a7 при каждом вводе символа. */
 
 const a7 = ['a', 'z', 'x', 'w', 'y', 't'];
 
 function t7() {
+    let randomIn = Math.floor(Math.random() * a7.length)
+    console.log(randomIn);
+    let randomEl = a7[randomIn];
+    console.log(randomEl);
+    document.querySelector('.out-7').textContent += randomEl;
 
 }
 
 document.querySelector('.i-7').onkeydown = t7;
 
-// Task 8 ============================================
+// Task 8 ============== СТЕНА НЕПОНИМАНИЯ  И БЕЗИСХОДНОСТИ==============================
 /*  Дан input .i-8. Напишите функцию t8, которая дописывает в .out-8 вводимый в input текст, но заменяет i на 1, o на 0, l на 7. */
 
 const a8 = {
@@ -131,16 +136,50 @@ function t8(event) {
     // 1. Получаем из event введенный символ
     // 2. Проверяем наличие такого ключа в a8 - уже делали это раньше!!!!
     // 3. Если есть дописываем в out-8 символ из массива a8. Если нет - введенный символ.
+    // let a81 = document.querySelector('.i-8').value;
+
+    // if (document.querySelector('.i-8').value in a8) {
+    //     console.log('зашли');
+    //     return i = 1, o = 0, l = 7;
+    // }
+    // else {
+    //     return document.querySelector('.i-8').value;
+    // }
+    let res = '';
+    let value = document.querySelector('.i-8').value;
+    for (let i = 0; i < a8.length; i++) {
+        switch (value) {
+            case 'i':
+                i = 1;
+                break;
+            case 'o':
+                o = 0;
+                break;
+            case 'l':
+                l = 7;
+                break;
+            default:
+                res += value;
+        }
+    }
+    console.log(res);
+    document.querySelector('.out-8').textContent = res;
 }
 
 document.querySelector('.i-8').onkeydown = t8;
 
 
-// Task 9 ============================================
+// Task 9 ============== условно сделано, не точно==============================
 /* Дан input .i-9. Напишите функцию t9, выводит в .out-9 количество (число) нажатых клавиш стрелка вниз. */
 
 function t9(event) {
     console.log(event);
+    let a9 = 0;
+    if (event.key === 'ArrowDown') {
+        a9 = a9 + 1;
+        a9++;
+    }
+    document.querySelector('.out-9').textContent = a9;
 }
 
 document.querySelector('.i-9').onkeydown = t9;
@@ -154,9 +193,16 @@ let w = 75;
 
 function t10(event) {
     // увеличиваем  h, w, потом присваиваем как свойства...
-
+    console.log(event);
+    if (event.key == 'ArrowLeft' || event.key == 'ArrowRight') {
+        w++;
+    }
+    document.querySelector('.block-10').style.width = h + 'px';
+    if (event.key == 'ArrowUp' || event.key == 'ArrowDown') {
+        h++;
+    }
+    document.querySelector('.block-10').style.height = h + 'px';
 }
-
 document.querySelector('.i-10').onkeydown = t10;
 
 // Task 11 ============================================
