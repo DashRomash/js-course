@@ -216,7 +216,27 @@ document.querySelector('.i-10').onkeydown = t10;
 
 function t11(event) {
     console.log(event.key);
+    console.log(event);
 
+    let divs = document.querySelectorAll('.keyboard');
+    divs.forEach(key => key.classList.remove('active'));
+
+    let butt = document.querySelector(`.keyboard[data="${event.key}"]`);
+    if (butt) {
+        butt.classList.add('active');
+    }
+    if (event.key == ' ') {
+        document.querySelector(`.keyboard[data="space"]`).classList.add('active');
+    }
+    if (event.key == 'Control') {
+        document.querySelector(`.keyboard[data="ctrl"]`).classList.add('active');
+    }
+    if (event.key == 'Alt') {
+        document.querySelector(`.keyboard[data="alt"]`).classList.add('active');
+    }
+    if (event.key == 'Enter') {
+        document.querySelector(`.keyboard[data="enter"]`).classList.add('active');
+    }
 }
 
 document.querySelector('.i-11').onkeydown = t11;
