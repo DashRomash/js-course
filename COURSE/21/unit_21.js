@@ -153,19 +153,78 @@ function t11(event) {
 
 const images = document.querySelectorAll('.img-12-min');
 let count = 0; // переменная, которая указывает на номер активного изображения в images
+let a12 = [...images];
+console.log(a12);
+
+let bigImg = document.querySelector('.img-12-max');
+
 
 const next = document.querySelector('.next');
 next.onclick = nextFunction;
+next.ontouchstart = nextFunction;
+
+
 
 const prev = document.querySelector('.prev');
 prev.onclick = prevFunction;
+prev.ontouchstart = nextFunction;
+
+
+const reset = document.querySelector('.reset');
+reset.onclick = resetFunction;
+reset.ontouchstart = resetFunction;
 
 function nextFunction() {
 
+    // a12[count].classList.remove('active-img');
+    // for (count; count < a12.length; count++) {
+    //     a12[count].classList.add('active-img');
+    // }
+
+    if (count == a12.length) {
+        count = 0;
+    }
+    else {
+        count++;
+    }
+
+
+    for (let i = 0; i < a12.length; i++) {
+        a12[i].classList.remove('active-img');
+        a12[count].classList.add('active-img');
+    }
+
+
+    bigImg.src = a12[count].src;
 }
 
 function prevFunction() {
 
+
+    if (count - 1 > 0) {
+        count--;
+    }
+    else (count = a12.length)
+
+
+    for (let i = 0; i < a12.length; i++) {
+        a12[i].classList.remove('active-img');
+    }
+    a12[count].classList.add('active-img');
+
+
+    bigImg.src = a12[count].src;
+}
+
+function resetFunction() {
+    a12[0].classList.add('active-img');
+    a12[count].classList.remove('active-img');
+    bigImg.src = a12[0].src;
+}
+
+
+function removeBorder() {
+    images.forEach(image => image.classList.remove('active-img'));
 }
 
 
