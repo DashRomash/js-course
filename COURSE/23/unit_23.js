@@ -12,49 +12,64 @@ document.querySelector('.b-1').onclick = t1;
 /* Создайте функцию t2 которая записывает  в LS  массив a2 = [7,6,5]. Ключ a2. Проверьте что происходит при повторном вызове функции. Запускается ф-я по кнопкуе b-2. */
 
 function t2() {
-
+    let a2 = [7, 6, 5];
+    localStorage.setItem('a2', JSON.stringify(a2));
 }
 
 // ваше событие здесь!!!
-
+document.querySelector('.b-2').onclick = t2;
 
 // Task 3 ============================================
 /*  При нажатии кнопки t3 выведите из LS сохранненный массив a2. Выведите в out-3 в формате ключ пробел значение перенос строки.  */
 
 function t3() {
-
+    let out = '';
+    let b = localStorage.getItem('a2');
+    b = JSON.parse(b);
+    console.log(b);
+    for (key in b) {
+        out += key + ' ' + b[key] + ' ' + '<br>';
+    }
+    document.querySelector('.out-3').innerHTML = out;
 }
 
 // ваше событие здесь!!!
-
+document.querySelector('.b-3').onclick = t3;
 
 // Task 4 ============================================
 /*  Создайте функцию t4 которая записывает  в LS  массив a4 = {hello: world, hi:mahai}. Ключ a4. Проверьте что происходит при повторном вызове функции. Запускается ф-я по кнопкуе b-4.*/
 
 function t4() {
-
+    let a4 = { hello: world, hi: mahai };
+    localStorage.setItem('a4', JSON.stringify(a4));
 }
 
 // ваше событие здесь!!!
-
+document.querySelector('.b-4').onclick = t4;
 // Task 5 ============================================
 /*   При нажатии кнопки b-5 выведите из LS сохранненный массив a4. Выведите в out-5 в формате ключ пробел значение перенос строки. */
 
 function t5() {
-
+    let out = '';
+    let b = localStorage.getItem('a4');
+    b = JSON.parse(b);
+    for (key in b) {
+        out += key + ' ' + b[key] + ' <br>';
+    }
+    document.querySelector('.out-5').innerHTML = out;
 }
 
 // ваше событие здесь!!!
-
+document.querySelector('.b-5').onclick = t5;
 // Task 6 ============================================
 /*  Создайте функцию t6 которая очищает весь LS. Запуск по кнопке b-6*/
 
 function t6() {
-
+    localStorage.clear();
 }
 
 // ваше событие здесь!!!
-
+document.querySelector('.b-6').onclick = t6;
 
 // Task 7 ============================================
 /*  Создайте input i-7 куда пользователь может вводить числа и строки. Создайте массив a7. Когда пользователь нажимает кнопку b-7 число должно добавляться в массив. Массив должен сохраняться в LS с ключем a7.*/
