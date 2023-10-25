@@ -36,7 +36,8 @@ function f1() {
 document.querySelector('.b-1').addEventListener('click', f1);
 
 
-// Task 2
+// Task 2 НЕ РАБОТАЕТ FormData
+
 // При нажатии кнопки .b-2, срабатывает функция f2. Функция отсылает запрос на api.itgid.info со следующими параметрами:
 // url: /api/25/random/random-string
 // method: GET
@@ -46,13 +47,15 @@ document.querySelector('.b-1').addEventListener('click', f1);
 // не забывайте для авторизации отправлять apikey с указанным ключом.
 
 let a2 = parseInt(document.querySelector('.i-2').value);
+let a22;
 function f2() {
 
     //1 Создали
     const xhr = new XMLHttpRequest();
 
     //2 Уточнили параметры
-    xhr.open('GET', URL + '/api/25/random/random-string');
+    const url = URL + '/api/25/random/random-string';
+    xhr.open('GET', url);
     xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
 
     const data = new FormData();
@@ -64,14 +67,21 @@ function f2() {
         console.log(xhr.response);
         const data1 = JSON.parse(xhr.response);
         console.log(data1);
+        console.log(data1['random-string']);
+        a22 = data1['random-string'];
+        // if (data1['random-string']) {
+        //     a22 = data1['random-string'];
+        //     document.querySelector('.out-2').textContent = a22;
+        // } else {
+        //     console.log('ошибка')
+        // }
+
 
     }
-
-
     //4 Отправляем
     xhr.send(data);
 
-
+    document.querySelector('.out-2').textContent = a22;
 }
 
 document.querySelector('.b-2').onclick = f2;
@@ -85,11 +95,37 @@ document.querySelector('.b-2').onclick = f2;
 // выведите в .out-3 названия рас (race) через пробел.
 
 // не забывайте для авторизации отправлять apikey с указанным ключом.
-
+let a3;
 function f3() {
+    //1
+    const xhr = new XMLHttpRequest();
+    //2
+    xhr.open('POST', URL + '/api/25/sr/read');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+    //3
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        let obj3 = JSON.parse(xhr.response);
+        if (obj3['result']) {
+            console.log(obj3['result'])
+        } else {
+            console.log("ошибка, такого нет")
+        }
+        obj3['result'].forEach(function (item) {
+            if (item['race']) {
+                console.log(item['race']);
+                document.querySelector('.out-3').textContent += item['race'] + ' ';
+            } else {
+                console.log('ошибка')
+            }
+        })
+
+    }
+    //4
+    xhr.send();
 
 }
-
 document.querySelector('.b-3').onclick = f3;
 
 
