@@ -129,7 +129,8 @@ function f3() {
 document.querySelector('.b-3').onclick = f3;
 
 
-// Task 4. 
+// Task 4.   опять formdata не хочет,а вот с пост запросом formdata  хорошо работает
+
 // При нажатии кнопки .b-4 срабатывает функция f4. Функция отсылает запрос на api.itgid.info со следующими параметрами:
 // url: /api/25/random/random-number
 // method: GET
@@ -143,12 +144,29 @@ let min = 1000;
 let max = 1150;
 
 function f4() {
+    const xhr = new XMLHttpRequest();
 
+    xhr.open('GET', URL + '/api/25/random/random-number');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+
+    const data = new FormData();
+    data.append('min', 1000);
+    data.append('max', 1150);
+
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        let a4 = JSON.parse(xhr.response);
+        console.log(a4);
+        document.querySelector('.out-4').textContent = a4["random-number"];
+    }
+
+    xhr.send(data);
 }
 
 document.querySelector('.b-4').onclick = f4;
 
-// Task 5. 
+// Task 5.  а вот с пост запросом formdata  хорошо работает
 // При нажатии кнопки .b-5 срабатывает функция f5. Функция отсылает запрос на api.itgid.info со следующими параметрами:
 // url: /api/25/random/random-number
 // method: POST
@@ -158,8 +176,24 @@ document.querySelector('.b-4').onclick = f4;
 
 
 function f5() {
+    const xhr = new XMLHttpRequest();
 
+    xhr.open('POST', URL + '/api/25/random/random-number');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
 
+    const data = new FormData();
+    data.append('min', 1000);
+    data.append('max', 1150);
+
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        const a5 = JSON.parse(xhr.response);
+        console.log(a5);
+        document.querySelector('.out-5').textContent = a5["random-number"];
+    }
+
+    xhr.send(data);
 }
 
 document.querySelector('.b-5').onclick = f5;
@@ -175,8 +209,19 @@ document.querySelector('.b-5').onclick = f5;
 // выведите сообщение ответа сервера в out-6-response
 
 function f6() {
+    const xhr = new XMLHttpRequest();
 
+    xhr.open('POST', URL + '/api/25/random/circle');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
 
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        document.querySelector('.out-6-status').textContent = xhr.status;
+        document.querySelector('.out-6-response').textContent = xhr.response;
+    }
+
+    xhr.send();
 }
 
 document.querySelector('.b-6').onclick = f6;
