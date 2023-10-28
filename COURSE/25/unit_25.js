@@ -281,7 +281,16 @@ document.querySelector('.b-7').onclick = f7;
 // выведите в .out-8 число сотрудников компании itemCount.
 
 function f8() {
-
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', URL + '/api/25/employee/read');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+    xhr.onload = function () {
+        console.log(xhr.response);
+        const a7 = JSON.parse(xhr.response);
+        console.log(a7);
+        document.querySelector('.out-8').textContent = a7['itemCount'];
+    }
+    xhr.send();
 }
 
 document.querySelector('.b-8').onclick = f8;
@@ -295,7 +304,26 @@ document.querySelector('.b-8').onclick = f8;
 // выведите обозначение (designation) сотрудника в .out-9
 
 function f9() {
+    let a9 = document.querySelector('.i-9').value;
+    if (a9) {
+        console.log(a9);
+    } else {
+        console.log('нет такого')
+    }
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://api.itgid.info/api/25/employee/read/' + (a9));
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
 
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        let a99 = JSON.parse(xhr.response);
+        console.log(a99);
+        console.log(a99['result']);
+        document.querySelector('.out-9').textContent = a99['result']['designation'];
+
+    }
+    xhr.send();
 }
 
 document.querySelector('.b-9').onclick = f9;
@@ -311,7 +339,25 @@ document.querySelector('.b-9').onclick = f9;
 // не забывайте для авторизации отправлять apikey с указанным ключом.
 
 function f10() {
+    let a10 = document.querySelector('.i-10').value;
+    if (a10) {
+        console.log(a10);
+    } else {
+        console.log('нет такого');
+    }
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.itgid.info/api/25/employee/read/' + (a10));
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
 
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        let data = JSON.parse(xhr.response);
+        console.log(data);
+        console.log(data['result']['age']);
+        document.querySelector('.out-10').textContent = data['result']['age'];
+    }
+    xhr.send();
 }
 
 document.querySelector('.b-10').onclick = f10;
@@ -326,9 +372,21 @@ document.querySelector('.b-10').onclick = f10;
 
 
 // не забывайте для авторизации отправлять apikey с указанным ключом.
-
+let a11 = document.querySelector('.i-11').value;
 function f11() {
-
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', URL + '/api/25/random/generate-password');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+    const data = new FormData();
+    data.append('length', a11);
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        let b11 = JSON.parse(xhr.response);
+        console.log(b11);
+        document.querySelector('.out-11').textContent = b11['password'];
+    }
+    xhr.send(data);
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -345,8 +403,28 @@ document.querySelector('.b-11').onclick = f11;
 
 // не забывайте для авторизации отправлять apikey с указанным ключом.
 
-
+let a12 = document.querySelector('.i-12').value;
+let ch12 = document.querySelector('.ch-12');
 function f12() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', URL + '/api/25/random/generate-password');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+    const data = new FormData();
+    data.append('length', a12);
+    if (ch12.checked) {
+        data.append('symbols', 1);
+    } else {
+        data.append('symbols', 0);
+    }
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        let d12 = JSON.parse(xhr.response);
+        console.log(d12);
+        document.querySelector('.out-12').textContent = d12['password'];
+
+    }
+    xhr.send();
 
 }
 
