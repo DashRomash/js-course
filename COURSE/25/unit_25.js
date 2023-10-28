@@ -240,7 +240,34 @@ document.querySelector('.b-6').onclick = f6;
 let requestRace = 'gaal';
 
 function f7() {
+    document.querySelector('.out-7').innerHTML = '';
+    const xhr = new XMLHttpRequest();
 
+    xhr.open('GET', URL + '/api/25/sr/read');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+
+    const data = new FormData();
+    data.append('race', requestRace);
+
+    let my7Img = document.createElement('img');
+
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        let data7 = JSON.parse(xhr.response);
+        console.log(data7);
+        console.log(data7['result']);
+        console.log(data7['result'][3]);
+        console.log(data7['result'][3]['image']);
+        my7Img.src = URL + data7['result'][3]['image'];// выводит '/images/sr/haal.png'
+        const a7 = document.querySelector('.out-7');
+        if (a7) {
+            a7.appendChild(my7Img);
+            a7.after(document.querySelector('.b-7'));
+        }
+    }
+
+    xhr.send();
 }
 
 document.querySelector('.b-7').onclick = f7;
