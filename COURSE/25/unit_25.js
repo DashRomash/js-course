@@ -424,7 +424,7 @@ function f12() {
         document.querySelector('.out-12').textContent = d12['password'];
 
     }
-    xhr.send();
+    xhr.send(data);
 
 }
 
@@ -443,8 +443,36 @@ document.querySelector('.b-12').onclick = f12;
 
 // не забывайте для авторизации отправлять apikey с указанным ключом.
 
-function f13() {
+let in13 = document.querySelector('.i-13').value;
+let ch131 = document.querySelector('.ch-131');
+let ch132 = document.querySelector('.ch-132');
 
+function f13() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', URL + '/api/25/random/generate-password');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+
+    const data = new FormData();
+    data.append('length', in13);
+    if (ch131.checked) {
+        data.append('symbols', 1);
+    } else {
+        data.append('symbols', 0);
+    }
+    if (ch132.checked) {
+        data.append('uppercase', 1);
+    } else {
+        data.append('uppercase', 0);
+    }
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        const data13 = JSON.parse(xhr.response);
+        console.log(data13);
+        document.querySelector('.out-13').textContent = data13['password'];
+
+    }
+    xhr.send(data);
 }
 
 document.querySelector('.b-13').onclick = f13;
@@ -457,9 +485,19 @@ document.querySelector('.b-13').onclick = f13;
 // human - аргумент (название расы), который получается из s-14.
 // если все сделано верно, то получите массив с описанием расы из игры КР.
 // выведите в .out-14 описание description расы (вывод через innerHTML)
-
+let s14 = document.querySelector('.s-14').value;
 function f14() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', URL + '/api/25/sr/read/' + s14);
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+    xhr.onload = function () {
+        console.log(xhr.response);
+        const data = JSON.parse(xhr.response);
+        console.log(data);
+        document.querySelector('.out-14').innerHTML = data['result']['description'];
 
+    }
+    xhr.send();
 }
 
 document.querySelector('.b-14').onclick = f14;
@@ -474,9 +512,37 @@ document.querySelector('.b-14').onclick = f14;
 // выведите в .out-15 изображения всех рас. 
 // в начале функции очистите .out-15
 // выведите изображения рас в .out-15
+let myImg151 = document.createElement('img');
+let myImg152 = document.createElement('img');
+let myImg153 = document.createElement('img');
+let myImg154 = document.createElement('img');
+let myImg155 = document.createElement('img');
 
 function f15() {
-
+    document.querySelector('.out-15').innerHTML = '';
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', URL + '/api/25/sr/read');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+    xhr.onload = function () {
+        console.log(xhr.response);
+        const data = JSON.parse(xhr.response);
+        console.log(data);
+        console.log(data['result'][0]['image']);
+        myImg151.src = URL + data['result'][0]['image'];
+        myImg152.src = URL + data['result'][1]['image'];
+        myImg153.src = URL + data['result'][2]['image'];
+        myImg154.src = URL + data['result'][3]['image'];
+        myImg155.src = URL + data['result'][4]['image'];
+        const a15 = document.querySelector('.out-15');
+        if (a15) {
+            a15.appendChild(myImg151);
+            a15.appendChild(myImg152);
+            a15.appendChild(myImg153);
+            a15.appendChild(myImg154);
+            a15.appendChild(myImg155);
+        }
+    }
+    xhr.send();
 }
 
 
@@ -491,7 +557,22 @@ document.querySelector('.b-15').onclick = f15;
 // выведите в .out-16 названия (title) миров через пробел. 
 
 function f16() {
-
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', URL + '/api/25/gow/world');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+    xhr.onload = function () {
+        console.log(xhr.status)
+        console.log(xhr.response);
+        const data = JSON.parse(xhr.response);
+        console.log(data);
+        console.log(data['worlds']);
+        data['worlds'].forEach(function (item) {
+            if (['title']) {
+                document.querySelector('.out-16').textContent += item['title'] + ' ';
+            }
+        })
+    }
+    xhr.send();
 }
 
 
@@ -505,9 +586,19 @@ document.querySelector('.b-16').onclick = f16;
 // где niflheim - название мира полученное из .s-17.
 // если все сделано верно, то получите описание выбранного в select .s-17 
 // выведите в .out-17 описание мира. 
-
+let s17 = document.querySelector('.s-17').value;
 function f17() {
-
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', URL + '/api/25/gow/world/' + s17);
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+    xhr.onload = function () {
+        console.log(xhr.status);
+        console.log(xhr.response);
+        const data = JSON.parse(xhr.response);
+        console.log(data);
+        document.querySelector('.out-17').textContent = data['world']['description'];
+    }
+    xhr.send();
 }
 
 
@@ -521,9 +612,66 @@ document.querySelector('.b-17').onclick = f17;
 // если все сделано верно, то получите массив с названиями миров и рунами
 // выведите в .out-18 руны как изображения, а в качестве атрибута alt установите название мира. 
 // выполните очистку .out-18 в начале функции
-
+let myImg180 = document.createElement('img');
+let myImg181 = document.createElement('img');
+let myImg182 = document.createElement('img');
+let myImg183 = document.createElement('img');
+let myImg184 = document.createElement('img');
+let myImg185 = document.createElement('img');
+let myImg186 = document.createElement('img');
+let myImg187 = document.createElement('img');
+let myImg188 = document.createElement('img');
 function f18() {
+    document.querySelector('.out-18').innerHTML = '';
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', URL + '/api/25/gow/rune');
+    xhr.setRequestHeader('apikey', 'A2KNyd0Yniipc8zu');
+    xhr.onload = function () {
+        // console.log(xhr.response);
+        const data = JSON.parse(xhr.response);
+        // console.log(data);
+        console.log(data['rune']);
 
+        myImg180.src = URL + data['rune']['Альвхейм'];
+        myImg180.alt = 'Альвхейм';
+
+        myImg181.src = URL + data['rune']['Асгард'];
+        myImg181.alt = 'Асгард';
+
+        myImg182.src = URL + data['rune']['Хельхейм'];
+        myImg182.alt = 'Хельхейм';
+
+        myImg183.src = URL + data['rune']['Йотунхейм'];
+        myImg183.alt = 'Йотунхейм';
+
+        myImg184.src = URL + data['rune']['Мидгард'];
+        myImg184.alt = 'Мидгард';
+
+        myImg185.src = URL + data['rune']['Муспельхейм'];
+        myImg185.alt = 'Муспельхейм';
+
+        myImg186.src = URL + data['rune']['Нифльхейм'];
+        myImg186.alt = 'Нифльхейм';
+
+        myImg187.src = URL + data['rune']['Свартальвхейм'];
+        myImg187.alt = 'Свартальвхейм';
+
+        myImg188.src = URL + data['rune']['Ванaхейм'];
+        myImg188.alt = 'Ванахейм';
+
+        let out18 = document.querySelector('.out-18');
+        out18.appendChild(myImg180);
+        out18.appendChild(myImg181);
+        out18.appendChild(myImg182);
+        out18.appendChild(myImg183);
+        out18.appendChild(myImg184);
+        out18.appendChild(myImg185);
+        out18.appendChild(myImg186);
+        out18.appendChild(myImg187);
+        out18.appendChild(myImg188);
+
+    }
+    xhr.send();
 }
 
 
