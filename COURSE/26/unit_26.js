@@ -31,7 +31,7 @@ async function f1() {
         if (item['age']) {
             document.querySelector('.out-1').textContent += item['age'] + ' ';
         }
-    });
+    })
 }
 
 document.querySelector('.b-1').addEventListener('click', f1);
@@ -46,8 +46,26 @@ document.querySelector('.b-1').addEventListener('click', f1);
 // Результат - объект с описанием сотрудника. Выведите в out-2 email полученного сотрудника.
 
 
-
+let a2 = document.querySelector('.i-2').value;
 async function f2() {
+
+    const requestHeaders2 = new Headers();
+    requestHeaders2.append('apikey', APIKEY);
+
+    const res = await fetch('https://api.itgid.info/api/26/employee/read?id=' + a2, {
+        method: "GET",
+        headers: requestHeaders2
+    })
+    console.log(res);
+
+    if (!res.ok) {
+        const message = 'Error: ' + Response.status;
+        throw new Error(message);
+    }
+
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-2').textContent = result['result']['email'];
 
 }
 
@@ -61,9 +79,25 @@ document.querySelector('.b-2').onclick = f2;
 // число 5 получите из input .i-3
 
 // Результат - объект с описанием сотрудника. Выведите в out-3 name полученного сотрудника.
-
+let a3 = document.querySelector('.i-3').value;
 async function f3() {
 
+    const requestHeaders3 = new Headers();
+    requestHeaders3.append('apikey', APIKEY);
+
+    const res = await fetch(URL + '/api/26/employee/read/' + a3, {
+        method: "POST",
+        headers: requestHeaders3
+    })
+
+    if (!res.ok) {
+        const message = 'Error: ' + Response.status;
+        throw new Error(message);
+    }
+
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-3').textContent = result['result']['name'];
 }
 
 document.querySelector('.b-3').onclick = f3;
@@ -79,6 +113,26 @@ document.querySelector('.b-3').onclick = f3;
 
 async function f4() {
 
+    const requestHeaders4 = new Headers();
+    requestHeaders4.append('apikey', APIKEY);
+
+    const res = await fetch(URL + '/api/26/sr/read', {
+        method: 'POST',
+        headers: requestHeaders4
+    })
+
+    if (!res.ok) {
+        const message = 'Error: ' + Response.status;
+        throw new Error(message);
+    }
+
+    const result = await res.json();
+    console.log(result);
+    result['result'].forEach(item => {
+        if (item['title']) {
+            document.querySelector('.out-4').textContent += item['title'] + ' ';
+        }
+    })
 }
 
 document.querySelector('.b-4').onclick = f4;
@@ -91,9 +145,21 @@ document.querySelector('.b-4').onclick = f4;
 
 // Результат - объект с описанием указанной расы. Выведите в out-5 описание расы (description). Вывод осуществляйте через innerHTML.
 
-
+let a5 = document.querySelector('.s-5').value;
 async function f5() {
-
+    const requestHeaders5 = new Headers();
+    requestHeaders5.append('apikey', APIKEY);
+    const res = await fetch(URL + '/api/26/sr/read?race=' + a5, {
+        method: 'GET',
+        headers: requestHeaders5
+    })
+    if (!res.ok) {
+        const message = 'Error: ' + Response.status;
+        throw new Error(message);
+    }
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-5').textContent = result['result']['description'];
 }
 
 document.querySelector('.b-5').onclick = f5;
@@ -107,9 +173,24 @@ document.querySelector('.b-5').onclick = f5;
 // выведите статус ответа сервера в .out-6-status
 
 async function f6() {
-
+    const requestHeaders6 = new Headers();
+    requestHeaders6.append('apikey', APIKEY);
+    try {
+        const res = await fetch(URL + '/api/26/run', {
+            method: 'GET',
+            headers: requestHeaders6
+        })
+        if (!res.ok) {
+            const message = 'Error: ' + res.status;
+            throw new Error(message);
+        }
+        const result = await res.json();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+        document.querySelector('.out-6-status').innerText = error.message || 'Unknown error';
+    }
 }
-
 document.querySelector('.b-6').onclick = f6;
 
 // Task 7.
@@ -121,9 +202,27 @@ document.querySelector('.b-6').onclick = f6;
 // Результат - объект с описанием указанной расы. Выведите в out-7 изображение расы. Картинку формируйте через createElement. 
 // В начале функции делайте очистку .out-7.
 
+let a7 = document.querySelector('.s-7').value;
 
 async function f7() {
-
+    document.querySelector('.out-7').innerHTML = '';
+    const requestHeaders7 = new Headers();
+    requestHeaders7.append('apikey', APIKEY);
+    const res = await fetch(URL + '/api/26/sr/read/' + a7, {
+        method: 'POST',
+        headers: requestHeaders7
+    })
+    if (!res.ok) {
+        const message = 'Error: ' + res.status;
+        throw new Error(message);
+    }
+    console.log(res);
+    const result = await res.json();
+    console.log(result);
+    let a71 = document.createElement('img');
+    a71.src = URL + result['result']['image'];
+    console.log(result['result']['image'])
+    document.querySelector('.out-7').appendChild(a71);
 }
 
 document.querySelector('.b-7').onclick = f7;
@@ -136,6 +235,19 @@ document.querySelector('.b-7').onclick = f7;
 // выведите в .out-8 данное число.
 
 async function f8() {
+    const requestHeaders8 = new Headers();
+    requestHeaders8.append('apikey', APIKEY);
+    const res = await fetch(URL + '/api/26/random/random-number', {
+        method: 'GET',
+        headers: requestHeaders8
+    })
+    if (!res.ok) {
+        const message = 'Error: ' + res.status;
+        throw new Error(message);
+    }
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-8').textContent = result["random-number"];
 
 }
 
@@ -154,6 +266,18 @@ let min = 400;
 let max = 500;
 
 async function f9() {
+    const requestHeaders9 = new Headers();
+    requestHeaders9.append('apikey', APIKEY);
+    const res = await fetch(URL + '/api/26/random/random-number?min=' + min + '&max=' + max, {
+        method: 'GET',
+        headers: requestHeaders9
+    })
+    if (!res.ok) {
+        const message = 'Error: ' + res.status;
+    }
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-9').textContent = result['random-number'];
 
 }
 
@@ -169,6 +293,25 @@ document.querySelector('.b-9').onclick = f9;
 // выведите число в .out-10
 
 async function f10() {
+    const requestHeaders10 = new Headers();
+    const data = new FormData();
+    data.append('min', min);
+    data.append('max', max);
+    requestHeaders10.append('apikey', APIKEY);
+    const res = await fetch(URL + '/api/26/random/random-number', {
+        method: 'POST',
+        headers: requestHeaders10,
+        body: data
+    })
+    if (!res.ok) {
+        const message = 'Error: ' + res.status;
+        throw new Error(message);
+    }
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-10').textContent = result['random-number']
+
+
 
 }
 
@@ -182,9 +325,21 @@ document.querySelector('.b-10').onclick = f10;
 
 // Если запрос сделан правильно, то сервер возвратит объект с строкой случайных символов длиной 16.
 // Выведите строку в .out-11
-
+let a11 = document.querySelector('.i-11').value;
 async function f11() {
-
+    const requestHeaders11 = new Headers();
+    requestHeaders11.append('apikey', APIKEY);
+    const res = await fetch(URL + '/api/26/random/random-string?length=' + a11, {
+        method: 'GET',
+        headers: requestHeaders11
+    })
+    if (!res.ok) {
+        const message = 'Error: ' + res.status;
+        throw new Error(message);
+    }
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-11').textContent = result["random-string"];
 }
 
 document.querySelector('.b-11').onclick = f11;
