@@ -354,8 +354,30 @@ document.querySelector('.b-11').onclick = f11;
 // выведите в .out-12 полученный пароль.
 
 
-
+let a12 = document.querySelector('.i-12').value;
+let a121 = document.querySelector('.ch-12');
 async function f12() {
+    const requestHeaders12 = new Headers();
+    requestHeaders12.append('apikey', APIKEY);
+    const data = new FormData();
+    data.append('length', a12);
+    if (a121.checked) {
+        data.append('symbols', 1)
+    } else {
+        data.append('symbols', 0)
+    }
+    const res = await fetch(URL + '/api/26/random/generate-password', {
+        method: 'POST',
+        headers: requestHeaders12,
+        body: data
+    })
+    if (!res.ok) {
+        const message = 'Error: ' + res.status;
+        throw new Error(message);
+    }
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-12').textContent = result['password'];
 
 }
 
@@ -373,9 +395,32 @@ document.querySelector('.b-12').onclick = f12;
 
 
 // не забывайте для авторизации отправлять apikey с указанным ключом.
-
+let a13 = document.querySelector('.i-13').value;
+let a131 = document.querySelector('.ch-131');
+let a132 = document.querySelector('.ch-132');
 async function f13() {
-
+    const requestHeaders13 = new Headers();
+    requestHeaders13.append('apikey', APIKEY);
+    const data = new FormData();
+    data.append('length', a13);
+    if (a131.checked) {
+        data.append('symbols', 1)
+    } else {
+        data.append('symbols', 0)
+    }
+    if (a132.checked) {
+        data.append('uppercase', 1)
+    } else {
+        data.append('uppercase', 0)
+    }
+    const res = await fetch(URL + '/api/26/random/generate-password', {
+        method: 'POST',
+        headers: requestHeaders13,
+        body: data
+    })
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-13').textContent = result['password'];
 }
 
 document.querySelector('.b-13').onclick = f13;
@@ -389,6 +434,23 @@ document.querySelector('.b-13').onclick = f13;
 // выведите в .out-14 title миров через пробел. 
 
 async function f14() {
+    const requestHeaders14 = new Headers();
+    requestHeaders14.append('apikey', APIKEY);
+    const res = await fetch(URL + '/api/26/gow/world', {
+        method: 'GET',
+        headers: requestHeaders14
+    })
+    if (!res.ok) {
+        const message = 'Error: ' + res.status;
+        throw new Error(message);
+    }
+    const result = await res.json();
+    console.log(result);
+    result['worlds'].forEach(item => {
+        if (item['title']) {
+            document.querySelector('.out-14').textContent += item['title'] + ' ';
+        }
+    })
 
 }
 
