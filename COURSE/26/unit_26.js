@@ -463,9 +463,23 @@ document.querySelector('.b-14').onclick = f14;
 // method: GET
 // где niflheim - название мира полученное из .s-15
 // выведите описание мира (description) в out-15
-
+let a15 = document.querySelector('.s-15').value;
 async function f15() {
-
+    const requestHeaders15 = new Headers();
+    requestHeaders15.append('apikey', APIKEY);
+    // console.log('Button clicked!');
+    const res = await fetch(URL + '/api/26/gow/world/' + a15, {
+        method: 'GET',
+        headers: requestHeaders15
+    })
+    // console.log('After fetch');
+    if (!res.ok) {
+        const message = "Error: " + res.status;
+        throw new Error(message);
+    }
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-15').textContent = result['world']['description'];
 }
 
 
@@ -478,8 +492,24 @@ document.querySelector('.b-15').onclick = f15;
 // имя правителя - получите из select .s-16
 // если все сделано верно, то получите объект с описанием мира где правитель Сурт игры GoW. 
 // выведите в .out-16 руну данного мира. Как изображение (createElement). Очищайте out-16 в начале функции.
-
+let a16 = document.querySelector('.s-16').value;
 async function f16() {
+    document.querySelector('.out-16').innerHTML = '';
+    const requestHeaders16 = new Headers();
+    requestHeaders16.append('apikey', APIKEY);
+    const res = await fetch(URL + '/api/26/gow/governor/' + a16, {
+        method: 'GET',
+        headers: requestHeaders16
+    })
+    if (!res.ok) {
+        const message = 'Error:' + res.status;
+        throw new Error(message);
+    }
+    const result = await res.json();
+    console.log(result);
+    let a161 = document.createElement('img');
+    a161.src = URL + result['world']['rune'];
+    document.querySelector('.out-16').appendChild(a161);
 
 }
 
@@ -495,10 +525,16 @@ document.querySelector('.b-16').onclick = f16;
 // выведите в .out-17 время в формате час:минуты
 
 async function f17() {
-
+    const requestHeaders17 = new Headers();
+    requestHeaders17.append('apikey', APIKEY);
+    const res = await fetch(URL + '/api/26/get-time', {
+        method: 'POST',
+        headers: requestHeaders17
+    })
+    const result = await res.json();
+    console.log(result);
+    document.querySelector('.out-17').textContent = `${result['time']['h']}:${result['time']['m']}`;
 }
-
-
 document.querySelector('.b-17').onclick = f17;
 
 
@@ -511,6 +547,19 @@ document.querySelector('.b-17').onclick = f17;
 // выполните очистку .out-18 в начале функции
 
 async function f18() {
+    document.querySelector('.out-18').innerHTML = '';
+    const requestHeaders18 = new Headers();
+    requestHeaders18.append('apikey', APIKEY);
+    const res = await fetch(URL + "/api/26/gow/rune", {
+        method: 'POST',
+        headers: requestHeaders18
+    });
+    const result = await res.json();
+    console.log(result);
+    let a18 = document.createElement('img');
+    a18.src = URL + result['rune']['Муспельхейм'];
+    a18.alt = 'Муспельхейм';
+    document.querySelector('.out-18').appendChild(a18);
 
 }
 
