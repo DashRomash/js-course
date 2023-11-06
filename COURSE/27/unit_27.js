@@ -14,15 +14,15 @@ function f1() {
     const requestHeaders = new Headers();
     requestHeaders.append("apikey", APIKEY);
 
-    const p = new Promise((resolve, reject) =>  {
-        fetch(URL +'/api/27/random/random-number', { 
+    const p = new Promise((resolve, reject) => {
+        fetch(URL + '/api/27/random/random-number', {
             headers: requestHeaders
         })
-        .then(response => {
-            if (response.ok) resolve(response.json());
-            else reject(response)
-        })
-        .catch(error => reject(error));
+            .then(response => {
+                if (response.ok) resolve(response.json());
+                else reject(response)
+            })
+            .catch(error => reject(error));
     });
 
     p.then(resolveF1, rejectError);
@@ -35,7 +35,12 @@ function rejectError(err) {
 
 function resolveF1(data) {
     console.log(data);
-    // тут допишите необходимый вывод 
+    console.log(data['random-number']);
+    if (data['random-number'] > 50) {
+        document.querySelector('.out-1').textContent = 'true';
+    } else {
+        document.querySelector('.out-1').textContent = 'false';
+    }
 }
 
 document.querySelector('.b-1').addEventListener('click', f1);
@@ -50,11 +55,30 @@ document.querySelector('.b-1').addEventListener('click', f1);
 
 
 function f2() {
-  
+    const requestHeaders2 = new Headers();
+    requestHeaders2.append('apikey', APIKEY);
+
+    const p2 = new Promise((resolve, reject) => {
+        fetch(URL + '/api/27/random/random-string', {
+            headers: requestHeaders2
+        })
+            .then(response => {
+                if (response.ok) resolve(response.json())
+                else reject(response)
+
+                    .catch(error => reject(error));
+            });
+    })
+    p2.then(resolveF2, rejectError);
 }
 
+function rejectError(err) {
+    console.log('проблема')
+    console.log(err);
+}
 function resolveF2(data) {
     console.log(data);
+    document.querySelector('.out-2').textContent = data['random-string'];
 }
 
 document.querySelector('.b-2').onclick = f2;
@@ -71,7 +95,7 @@ document.querySelector('.b-2').onclick = f2;
 
 let emloyeerId;
 
-function f3(){
+function f3() {
     const requestHeaders = new Headers();
     requestHeaders.append("apikey", APIKEY);
 
@@ -82,15 +106,15 @@ function f3(){
         .then(data => {
             console.log(data);
             emloyeerId = data['random-number'];
-            return  fetch(URL + '/api/27/employee/read/' + emloyeerId, {
+            return fetch(URL + '/api/27/employee/read/' + emloyeerId, {
                 headers: requestHeaders
             });
-         })
-         .then(response => response.json())
-         .then(data => {
+        })
+        .then(response => response.json())
+        .then(data => {
             console.log(data);
-            // допишите вывод
-         });
+            document.querySelector('.out-3').textContent = data['result']['email'];
+        });
 }
 
 document.querySelector('.b-3').onclick = f3;
@@ -106,8 +130,26 @@ document.querySelector('.b-3').onclick = f3;
 
 let employeeEmail;
 
-function f4(){
+function f4() {
+    const requestHeaders = new Headers();
+    requestHeaders.append("apikey", APIKEY);
 
+    fetch(URL + '/api/27/employee/random-email', {
+        headers: requestHeaders
+    })
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data);
+            employeeEmail = data['email'];
+            return fetch(URL + '/api/27/employee/email?email=' + employeeEmail, {
+                headers: requestHeaders
+            });
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.querySelector('.out-4').textContent = data['result']['name'];
+        })
 }
 
 document.querySelector('.b-4').onclick = f4;
@@ -122,8 +164,28 @@ document.querySelector('.b-4').onclick = f4;
 
 let randomWorld;
 
-function f5(){
+function f5() {
+    const requestHeaders = new Headers();
+    requestHeaders.append("apikey", APIKEY);
 
+    fetch(URL + '/api/27/gow/random-world', {
+        method: 'POST',
+        headers: requestHeaders
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            randomWorld = data['world'];
+            return fetch(URL + '/api/27/gow/world/' + randomWorld, {
+                method: 'GET',
+                headers: requestHeaders
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.querySelector('.out-5').textContent = data['world']['governor'];
+        })
 }
 
 document.querySelector('.b-5').onclick = f5;
@@ -146,7 +208,7 @@ let max_1 = 20;
 let min_2 = 100;
 let max_2 = 120;
 
-function f6(){
+function f6() {
 
     const requestHeaders = new Headers();
     requestHeaders.append("apikey", APIKEY);
@@ -164,22 +226,22 @@ function f6(){
         fetch(URL + '/api/27/random/random-number', {
             method: "POST",
             headers: requestHeaders,
-            body : formData1
+            body: formData1
         }).then(data => resolve(data.json()));
-    
+
     });
-    
+
     const promise_2 = new Promise((resolve) => {
         fetch(URL + '/api/27/random/random-number', {
             method: "POST",
             headers: requestHeaders,
-            body : formData2
+            body: formData2
         }).then(data => resolve(data.json()));
     });
 
-    Promise.all([promise_1, promise_2 ]).then( data => {
-       // выведите в консоль и посмотрите что лежит в data
-       // выведите сумму полученных случайных чисел
+    Promise.all([promise_1, promise_2]).then(data => {
+        console.log(data);
+        document.querySelector('.out-6').textContent = data[0]['random-number'] + data[1]['random-number'];
     })
 }
 
@@ -196,8 +258,33 @@ document.querySelector('.b-6').onclick = f6;
 // В out-72 выводится полученная случайна строка
 
 
-function f7(){
-   
+function f7() {
+    const requestHeaders = new Headers();
+    requestHeaders.append("apikey", APIKEY);
+
+    const promise_1 = new Promise((resolve) => {
+        fetch(URL + '/api/27/random/random-number', {
+            method: 'GET',
+            headers: requestHeaders
+        }).then(data => resolve(data.json()))
+    })
+
+    const promise_2 = new Promise((resolve) => {
+        fetch(URL + '/api/27/random/random-string', {
+            method: 'GET',
+            headers: requestHeaders
+        }).then(data => resolve(data.json()))
+    })
+
+
+    Promise.all([promise_1, promise_2]).then(data => {
+        console.log(data);
+        console.log(data[0]["random-number"]);
+        console.log(data[1]["random-string"]);
+        document.querySelector('.out-71').textContent = data[0]["random-number"];
+        document.querySelector('.out-72').textContent = data[1]["random-string"];
+    })
+
 }
 
 document.querySelector('.b-7').onclick = f7;
@@ -216,8 +303,34 @@ document.querySelector('.b-7').onclick = f7;
 const out8 = document.querySelector('.out-8');
 
 
-function f8(){
+function f8() {
+    out8.innerHTML = '';
+    let a81 = document.createElement('img');
+    let a82 = document.createElement('img');
+    out8.appendChild(a81);
+    out8.appendChild(a82);
 
+    const requestHeaders = new Headers();
+    requestHeaders.append("apikey", APIKEY);
+
+    const promise_1 = new Promise((resolve) => {
+        fetch(URL + '/api/27/sr/read/' + document.querySelector('.s-81').value, {
+            method: 'GET',
+            headers: requestHeaders
+        }).then(data => resolve(data.json()))
+    })
+    const promise_2 = new Promise((resolve) => {
+        fetch(URL + '/api/27/sr/read?race=' + document.querySelector('.s-82').value, {
+            method: 'GET',
+            headers: requestHeaders
+        }).then(data => resolve(data.json()))
+    })
+    Promise.all([promise_1, promise_2]).then(data => {
+        console.log(data);
+
+        a81.src = URL + data[0]['result']['image'];
+        a82.src = URL + data[1]['result']['image'];
+    })
 }
 
 document.querySelector('.b-8').onclick = f8;
