@@ -4,4 +4,4 @@ class Goods {
         this.price = price;
     }
 }
-export default Goods;
+// export default Goods;
