@@ -57,20 +57,15 @@ document.querySelector('.b-3').addEventListener('click', f3);
 
 
 let a4 = [1, '1', 2, '2', '3'];
-let i4 = document.querySelector('.i-4').value;
-const f4 = (arr, elem) => {
 
-    for (let i = 0; i < arr.length; i++) {
-        console.log('зашли for')
-        if (arr[i] === elem) {
-            console.log('зашли if')
-            document.querySelector('.out-4').textContent = i;
-        } else {
-            document.querySelector('.out-4').textContent = '-1';
-        }
-    }
+const f4 = (arr, elem) => {
+    const index = arr.indexOf(elem);
+    document.querySelector('.out-4').textContent = index !== -1 ? index : '-1';
 }
-document.querySelector('.b-4').addEventListener('click', () => f4(a4, i4));
+document.querySelector('.b-4').addEventListener('click', () => {
+    const i4 = document.querySelector('.i-4').value;
+    f4(a4, i4);
+});
 
 // TASK 05
 // По нажатию b-5 выполняется функция f5. Функция считывает значение из i-5-1 и индекс с которого начинается поиск в массиве с i-5-2 и с помощью indexOf и ищет данный элемент в массиве a5 c позиции указанной в i-5-2. Выводит в out-5 индекс если он есть в массиве, или -1 если нет.
@@ -83,8 +78,19 @@ document.querySelector('.b-4').addEventListener('click', () => f4(a4, i4));
 
 let a5 = [22, 33, 44, 55, 66, 77, 88, 33, 44, 55, 66, 77];
 
-const f5 = () => {
+const f5 = (arr, elem, turn) => {
+    const index = arr.indexOf(elem, turn);
+    document.querySelector('.out-5').textContent = index !== -1 ? index : '-1';
+
 }
+
+
+document.querySelector('.b-5').addEventListener('click', () => {
+    const i51 = document.querySelector('.i-5-1').value;
+    const i52 = document.querySelector('.i-5-2').value;
+    f5(a5, i51, i52);
+});
+
 
 // TASK 06
 // По нажатию b-6 выполняется функция f6. Функция считывает значение из i-6 и с помощью indexOf и ищет данный элемент в СТРОКЕ a6. Выводит в out-6 результат поиска.
