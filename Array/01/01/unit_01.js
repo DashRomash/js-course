@@ -52,7 +52,7 @@ const f3 = () => {
 }
 document.querySelector('.b-3').addEventListener('click', f3);
 
-// TASK 04
+// TASK 04  НЕ РЕШЕНО
 // По нажатию b-4 выполняется функция f4. Функция принимает 2 параметра, первый - массив, второй элемент. Функция должна с помощью indexOf найти и вывести в out-4 индекс искомого элемента в массиве a4 или -1 если элемента в массиве нет. Протестируйте задачу на строке '2' и числе 2. Сделайте выводы.
 
 
@@ -67,7 +67,7 @@ document.querySelector('.b-4').addEventListener('click', () => {
     f4(a4, i4);
 });
 
-// TASK 05
+// TASK 05   НЕ РЕШЕНО
 // По нажатию b-5 выполняется функция f5. Функция считывает значение из i-5-1 и индекс с которого начинается поиск в массиве с i-5-2 и с помощью indexOf и ищет данный элемент в массиве a5 c позиции указанной в i-5-2. Выводит в out-5 индекс если он есть в массиве, или -1 если нет.
 // Введите пары и изучите поведение
 // число 33 и индекс старта 2
@@ -76,11 +76,17 @@ document.querySelector('.b-4').addEventListener('click', () => {
 // число 44 и индекс старта -3
 
 
-let a5 = [22, 33, 44, 55, 66, 77, 88, 33, 44, 55, 66, 77];
+// let a5 = [22, 33, 44, 55, 66, 77, 88, 33, 44, 55, 66, 77]; // добавь arr в аргументы функции и внутри услойвий
 
-const f5 = (arr, elem, turn) => {
-    const index = arr.indexOf(elem, turn);
-    document.querySelector('.out-5').textContent = index !== -1 ? index : '-1';
+const f5 = (elem, turn) => {
+    let a5 = [22, 33, 44, 55, 66, 77, 88, 33, 44, 55, 66, 77];
+    if (Array.isArray(a5)) {
+        const index = a5.indexOf(elem, turn);
+        document.querySelector('.out-5').textContent = index !== -1 ? index : '-1';
+    } else {
+        console.error('а5 не массив');
+    }
+
 
 }
 
@@ -88,7 +94,7 @@ const f5 = (arr, elem, turn) => {
 document.querySelector('.b-5').addEventListener('click', () => {
     const i51 = document.querySelector('.i-5-1').value;
     const i52 = document.querySelector('.i-5-2').value;
-    f5(a5, i51, i52);
+    f5(i51, i52);
 });
 
 
@@ -100,17 +106,39 @@ document.querySelector('.b-5').addEventListener('click', () => {
 let a6 = '987123abcdefyttb4';
 
 const f6 = () => {
+    let i6 = document.querySelector('.i-6').value;
+    if (a6.indexOf(i6)) {
+        document.querySelector('.out-6').textContent = 'true';
+    } else {
+        document.querySelector('.out-6').textContent = 'false';
+    }
 }
+document.querySelector('.b-6').addEventListener('click', () => {
+    f6();
+})
 
-// TASK 07
+// TASK 07   
 // По нажатию b-7 выполняется функция f7. Функция принимает 2 параметра, первый массив, второй - искомое число. Функция должна эмулировать работу метода indexOf с помощью цикла. Что понимается под эмуляцией? Мы не используем метод indexOf, а циклом перебираем массив и с помощью if решаем задачу. Функция должна только либо выводить в out-7 число -1, если искомого числа нет в массиве, или индекс числа в массиве.
 
 
 let a7 = [21, 22, 23, 24, 25, 26, 27];
 
 const f7 = (arr, elem) => {
+    for (let i = 0; i < a7.length; i++) {
+        console.log('в цикл')
+        if (arr[i] == elem) {
+            console.log('в проверку')
+            document.querySelector('.out-7').textContent = i;
+            break;
+        } else {
+            document.querySelector('.out-7').textContent = '-1';
+        }
+    }
 }
-
+document.querySelector('.b-7').addEventListener('click', () => {
+    const i7 = document.querySelector('.i-7').value;
+    f7(a7, i7);
+})
 // TASK 08 * - сложная
 // По нажатию b-8 выполняется функция f8. Функция должна получить число из i-8 и с помощью цикла и indexOf найти все индексы данного числа в массиве a8. Индексы должны быть добавлены в res08. Результат (res08) выведите в out-8. Если число не встречается в массиве, то res08 должен быть пустым.
 
@@ -119,12 +147,23 @@ const f7 = (arr, elem) => {
 let a8 = [1, 2, 3, 1, 3, 2, 55, 23, 53, 24, 55, 3, 1, 5, 2, 3, 5, 4, 6, 7, 12, 53];
 let res08 = [];
 
-const f8 = () => {
-    // ваш код
+const f8 = (elem) => {
+    for (let i = 0; i < a8.length; i++) {
+        if (a8[i] == elem) {
+            res08.push(i);
+        } else {
+            console.log('совпадений нет');
+        }
+    }
+
     document.querySelector('.out-8').innerHTML = res08;
 }
+document.querySelector('.b-8').addEventListener('click', () => {
+    const i8 = document.querySelector('.i-8').value;
+    f8(i8);
+})
 
-// TASK 09
+// TASK 09 НЕ ЧИСТО
 // По нажатию b-9 выполняется функция f9. Функция должна получить число из i-9 и с помощью цикла и indexOf вывести в out-9 все индексы вложенных в a9 массивов содержащие указанное число. Вывод через пробел. Если совпадений нет - выводите пустую строку.
 // пример если a9 = [ [1,2] , [2, 3], [3,4,5], [6, 7, 5] ]
 // и ввели число 5 то в out-9 должен быть вывод 2 3 поскольку [3,4,5] находится в a9 под индексом 2,
@@ -140,9 +179,23 @@ let a9 = [
     [45, 12, 67, 32]
 ];
 
-const f9 = () => {
-}
+const f9 = (elem) => {
+    // document.querySelector('.out-9').textContent = '';// как убрать out?
+    for (let i = 0; i < a9.length; i++) {
+        // document.querySelector('.out-9').textContent = '';
+        for (let k = 0; k < a9[i].length; k++) {
+            // document.querySelector('.out-9').textContent = '';
+            if (a9[i][k] == elem) {
+                document.querySelector('.out-9').textContent += i + ' ';//`${i }`
+            }
+        }
+    }
 
+}
+document.querySelector('.b-9').addEventListener('click', () => {
+    const i9 = document.querySelector('.i-9').value;
+    f9(i9);
+});
 // TASK 10
 // По нажатию b-10 выполняется функция f10. Как вы заметили, indexOf ищет по строгому сравнению ( 4 task ). Давайте напишем функцию f10 которая принимает два параметра - массив и искомую строку или число. Функция должна ВОЗВРАТИТЬ -1 если никаких совпадений нет, либо индекс при нестрогом совпадении. Пример
 // массив a10 = [1, 2, '3'] введи 3 получили индекс 2
@@ -155,8 +208,17 @@ const f9 = () => {
 let a10 = [67, '55', 2, 5, '4', '8', 8, '66', '54', 11];
 
 const f10 = (arr, elem) => {
+    const index = arr.indexOf(elem);
+    if (arr.indexOf(elem) !== -1) {
+        return index;
+    } else {
+        return '-1';
+    }
 }
 
+document.querySelector('.b-10').addEventListener('click', () => {
+    document.querySelector('.out-10').innerHTML = f10(a10, 8);
+});
 
 document.querySelector('.b-1').addEventListener('click', f1);
 document.querySelector('.b-2').addEventListener('click', f2);
