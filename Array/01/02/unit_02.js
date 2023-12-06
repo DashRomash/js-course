@@ -79,8 +79,8 @@ const f4 = () => {
     for (let i = 0; i < values.length; i++) {
         console.log(values[i]);
         if (values[i].includes(i4)) {
-            keys.push(Object.keys(a4)[i]);
-            document.querySelector('.out-4').textContent = keys;
+            keys.push(Object.keys(a4)[i]);//добавь в массив keys(верни массив ключей. конкретный ключ совпадения)
+            document.querySelector('.out-4').textContent = keys.join(' ');
         }
     }
     console.log('функция выполнена')
@@ -97,9 +97,15 @@ document.querySelector('.b-4').addEventListener('click', f4);
 let a5 = [22, 33, 44, 55, 66, 77, 88, 33, 44, 55, 66, 77];
 
 const f5 = () => {
-
+    const i51 = Number(document.querySelector('.i-5-1').value);
+    const i52 = Number(document.querySelector('.i-5-2').value);
+    if (a5.includes(i51, i52)) {
+        document.querySelector('.out-5').textContent = 'true';
+    } else {
+        document.querySelector('.out-5').textContent = 'false';
+    }
 }
-
+document.querySelector('.b-5').addEventListener('click', f5);
 // TASK 06
 // По нажатию b-6 выполняется функция f6. Функция считывает строку из i-6 и с помощью includes и ищет данный элемент в СТРОКЕ a6. Выводит в out-6 false если искомой строки нет в a6 и true если есть.
 // Изучите поведение введя по очереди Hi, HI, WIFI, wifi, wiFI
@@ -108,8 +114,15 @@ const f5 = () => {
 let a6 = ['Hi', 'wiFI'];
 
 const f6 = () => {
+    const i6 = document.querySelector('.i-6').value;
+    const str6 = a6.toString();
+    if (str6.includes(i6)) {
+        document.querySelector('.out-6').textContent = 'true';// Понятно: сравнение супер строгое!
+    } else {
+        document.querySelector('.out-6').textContent = 'false';
+    }
 }
-
+document.querySelector('.b-6').addEventListener('click', f6);
 // TASK 07
 // По нажатию b-7 выполняется функция f7. Функция принимает 2 параметра, первый массив, второй - искомое число. Функция должна эмулировать работу метода includes с помощью цикла. Что понимается под эмуляцией? Мы не используем метод includes ( и indexOf тоже), а циклом перебираем массив и с помощью if решаем задачу. Функция должна только либо выводить в out-7 false, если искомого числа нет в массиве, или true если есть.
 
@@ -117,8 +130,18 @@ const f6 = () => {
 let a7 = [21, 22, 23, 24, 25, 26, 27];
 
 const f7 = (arr, elem) => {
+    let found = false;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == elem) {
+            found = true;
+            break;
+        }
+    }
+    document.querySelector('.out-7').textContent = found ? 'true' : 'false';
 }
-
+document.querySelector('.b-7').addEventListener('click', () => {
+    f7(a7, 20);
+});
 // TASK 08
 // По нажатию b-8 выполняется функция f8. Функция должна получить символ из i-8 и с помощью includes проверить есть ли подобный символ в строке a8 или нет. Если есть - вывести true, если нет false;
 
@@ -126,8 +149,15 @@ const f7 = (arr, elem) => {
 let a8 = 'JSbestever';
 
 const f8 = () => {
+    const i8 = document.querySelector('.i-8').value;
+    if (a8.includes(i8)) {
+        document.querySelector('.out-8').textContent = 'true';
+    }
+    else {
+        document.querySelector('.out-8').textContent = 'false';
+    }
 }
-
+document.querySelector('.b-8').addEventListener('click', f8);
 // TASK 09
 // По нажатию b-9 выполняется функция f9. Функция должна получить из i-9 символ и с помощью includes искать его в массиве a9. Обратите внимание на сложность. Если пользователь ввел символ в нижнем регистре то функция должна c помощью includes искать и в нижнем и в верхнем регистре символ в массиве. Если пользователь ввел число - то искать число. Считаем, что пользователь может ввести либо символы латинского алфавита, либо числа. Вывод true, false в out-9.
 // пример пользователь ввел B => true
@@ -139,6 +169,9 @@ let a9 = ['A', 'b', 'c', 'C', 'D', 12, 5, 'd', 1];
 
 const f9 = () => {
     console.log('09');
+    const i9 = document.querySelector('.i-9').value;
+    a9.filter(i => i.toLowerCase() == i9.toLowerCase());
+
 }
 
 // TASK 10
