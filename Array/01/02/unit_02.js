@@ -167,12 +167,45 @@ document.querySelector('.b-8').addEventListener('click', f8);
 
 let a9 = ['A', 'b', 'c', 'C', 'D', 12, 5, 'd', 1];
 
+// const f9 = () => {
+//     console.log('09');
+//     const i9 = document.querySelector('.i-9').value;
+//     if (isNaN(i9)) {
+//         if (a9.includes(i9)) {
+//             document.querySelector('.out-9').textContent = true;
+//         } else {
+//             document.querySelector('.out-9').textContent = false;
+//         }
+//     } else {
+//         if (a9.includes(i9.toLowerCase())) {
+//             document.querySelector('.out-9').textContent = true;
+//         } else {
+//             document.querySelector('.out-9').textContent = false; s
+//         }
+//     }
+
+// }
+// const f9 = () => {
+//     console.log('09');
+//     const i9 = document.querySelector('.i-9').value;
+//     let result;
+//     if (isNaN(i9)) {
+//         result = a9.includes(i9);
+//     } else {
+//         result = a9.includes(i9.toLowerCase());
+//     }
+//     document.querySelector('.out-9').textContent = result;
+// }
+// document.querySelector('.b-9').addEventListener('click', f9);
+
 const f9 = () => {
     console.log('09');
     const i9 = document.querySelector('.i-9').value;
-    a9.filter(i => i.toLowerCase() == i9.toLowerCase());
-
+    const result = a9.includes(isNaN(i9) ? i9 : i9.toLowerCase());
+    console.log(result);
+    document.querySelector('.out-9').textContent = result;
 }
+document.querySelector('.b-9').addEventListener('click', f9);
 
 // TASK 10
 // Ну и на прокачку ваших скиллов. Часто попадется вопрос, в чем отличие includes от indexOf? Ответ - в поведении с NaN. Изучите и запомните пример ниже.
@@ -197,14 +230,14 @@ const f10 = () => {
 const a11 = [[1, 2], { a: 1 }, true, '', [1], Infinity, undefined, null];
 
 const f11 = () => {
-    let c = [1, 2];
-    // c = {a:1};
+    // let c = [1, 2];
+    // c = { a: 1 };
     // c = true;
     // c = '';
     // c = [1];
     // c = Infinity;
     // c = undefined;
-    // c = null;
+    c = null;
     console.log(a11.includes(c));
 }
 
