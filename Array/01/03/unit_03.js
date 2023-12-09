@@ -67,45 +67,65 @@ document.querySelector('.b-5').addEventListener('click', f5);
 let a6 = ['a', 'b'];
 
 const f6 = (arr, elem) => {
+    arr.push(elem);
+
+    console.log(arr, elem);
+    return arr.push();
 
 }
-document.querySelector('.b-6').addEventListener('click', f6);
+document.querySelector('.b-6').addEventListener('click', () => {
+    f6(a6, document.querySelector('.i-6').value);
+});
 // TASK 07
 // По нажатию b-7 выполняется функция f7. Функция применяет метод pop к массиву a7 и выводит массив в консоль.
 
 let a7 = [21, 22, 23, 24, 25, 26, 27];
 
 const f7 = () => {
-
+    // console.log(a7[a7.length - 1]);
+    console.log(a7);
+    a7.pop();
+    console.log(a7);
+    console.log(a7[a7.length - 1]);
 }
-
+document.querySelector('.b-7').addEventListener('click', f7);
 // TASK 08
 // По нажатию b-8 выполняется функция f8. Функция должна применить pop к массиву a8 и возвратить результат данной операции.
 // Нажимая кнопку удалите все элементы. Изучите что возвращает операция когда есть элементы доступные для удаления и когда массив пуст.
 
 
-let a8 = [99, 98, 97, 96];
+let a8 = [21, 22, 23, 24];
 
 const f8 = () => {
-}
+    console.log(a8);
+    const poped = a8.pop();
+    console.log(poped);
 
+}
+document.querySelector('.b-8').addEventListener('click', f8);
 // TASK 09
 // По нажатию b-9 выполняется функция f9. Функция должна применить pop() к массиву a9. После применения массив выведите в консоль.
 
 let a9 = ['A', 2, true, function () { console.log(2) }, [2, 3, 4], { "test": 1 }];
 
 const f9 = () => {
+    console.log(a9.pop());
+    console.log(a9);
 }
-
+document.querySelector('.b-9').addEventListener('click', f9);
 // TASK 10
 // Ну и на прокачку ваших скиллов. Напишем функцию, которая эмулирует работу pop - удаляет последний элемент массива a10 и возвращает удаленный элемент.
 
 let a10 = [67, '55', 2, 5, '4', '8', 8, '66', '54', 11];
 
 const f10 = () => {
+    console.log(a10);
+    const exEl = a10[a10.length - 1];
+    a10.length = a10.length - 1;
+    console.log(exEl);//удаленный  элемент
 
 }
-
+document.querySelector('.b-10').addEventListener('click', f10);
 
 document.querySelector('.b-1').addEventListener('click', f1);
 document.querySelector('.b-2').addEventListener('click', f2);
@@ -117,10 +137,10 @@ document.querySelector('.b-6').addEventListener('click', () => {
     console.log(f6(a6, elem));
 });
 document.querySelector('.b-7').addEventListener('click', f7);
-document.querySelector('.b-8').addEventListener('click', () => {
-    console.log(f8());
-});
+// document.querySelector('.b-8').addEventListener('click', () => {
+// console.log(f8());
+// });
 document.querySelector('.b-9').addEventListener('click', f9);
-document.querySelector('.b-10').addEventListener('click', () => {
-    console.log(f10());
-});
+// document.querySelector('.b-10').addEventListener('click', () => {
+//     console.log(f10());
+// });
