@@ -141,6 +141,15 @@ let a9_index;
 let a9_even;
 
 const f9 = () => {
+    a9_index = a9.map((item, index) => {
+        return index;
+    })
+    console.log(a9_index);
+    a9_even = a9.map(item => {
+        return (item % 2 !== 1) ? item : null;
+
+    }).filter(item => item !== null);
+    console.log(a9_even);
 }
 
 // TASK 10
