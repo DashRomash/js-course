@@ -153,6 +153,10 @@ let a9 = [6, 7, 9];
 let z9 = {}; // {6 : 6, 7: 7, 9: 9}
 
 const f9 = () => {
+    for (let i = 0; i < a9.length; i++) {
+        z9[a9[i]] = a9[i];
+    }
+    console.log(z9);
 }
 
 // TASK 10
@@ -162,13 +166,22 @@ let a10 = { "hi": 5, "test": 2, "best": 12, "quest": -6 };
 let z10 = {}; // ожидаю {"best" : 12, "quest" : -6};
 
 const f10 = () => {
+    for (const [key, value] of Object.entries(a10)) {
+        if (Math.abs(value) > 5) {
+            z10[key] = value;
+        }
+    }
 
+    console.log(z10);
 }
 
-function callback10(elem) {
-    // ваш код
-    // return
-}
+// function callback10(elem) {
+
+//     if (Math.abs(elem) > 5) {
+//         return elem;
+//     }
+
+// }
 
 
 document.querySelector('.b-1').addEventListener('click', f1);
