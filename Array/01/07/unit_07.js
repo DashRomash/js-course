@@ -2,9 +2,9 @@
 // По нажатию b-1 выполняется функция f1. Функция с помощью isArray проверяет a1. Результат проверки - вывести в out-1. Проверьте на строке и set.
 
 
-let a1 = [5, 6, 7, 8, 44, 21, 43, 26, 78, 100, -2, 0, 17];
+// let a1 = [5, 6, 7, 8, 44, 21, 43, 26, 78, 100, -2, 0, 17];
 // a1 = 'hello';
-// a1 = new Set([2, 3]);
+a1 = new Set([2, 3]);
 
 const f1 = () => {
     document.querySelector('.out-1').innerHTML = Array.isArray(a1);
@@ -17,10 +17,22 @@ let a2 = [22, 33, 44, 55, 66, 77, 88, 99];
 // a2 = 'hello';
 // a2 = new Set([2,3]);
 
-const f2 = () => {
+const f2 = (arr) => {
+    // if (Array.isArray(a2)) {
+    //     document.querySelector('.out-2').textContent = 'true';
+    // } else {
+    //     document.querySelector('.out-2').textContent = 'false';
+    // }
+    try {
+        a2.push(2);
+        document.querySelector('.out-2').textContent = 'true';
+    } catch (error) {
+        document.querySelector('.out-2').textContent = 'false';
+    }
 
 }
 
+document.querySelector('.b-2').addEventListener('click', f2);
 // TASK 03
 //По нажатию b-3 выполняется функция f3. Функция применяет к массиву a3 метод reduce и выводит переменные accum, item в консоль. Обратите внимание на начальное значение accum и значения, учитывая что мы не делаем return. Обратите внимание, сколько раз сработал цикл - на один меньше чем элементов в массиве. 
 
@@ -58,7 +70,10 @@ const f4 = () => {
 let a5 = [2, 3, 4, 5, 6];
 
 const f5 = () => {
-    // let res = a5.reduce((accum, item) => {
+    let res = a5.reduce((accum, item) => {
+        return accum + item;
+    })
+    document.querySelector('.out-5').textContent = res;
 }
 
 // TASK 06
@@ -67,7 +82,10 @@ const f5 = () => {
 let a6 = [2, 3, 4];
 
 const f6 = () => {
-    // let res = a6.reduce((accum, item) => {
+    let res = a6.reduce((accum, item) => {
+        return accum * item;
+    })
+    document.querySelector('.out-6').textContent = res;
 }
 
 // TASK 07
@@ -76,7 +94,14 @@ const f6 = () => {
 let a7 = [3, -4, 5, -6, 7]; // результат 15
 
 const f7 = () => {
-    // let res = a7.reduce((accum, item) => {
+    let res = a7.reduce((accum, item) => {
+        if (item > 0) {
+            return accum + item;
+        } else {
+            return accum;
+        }
+    })
+    document.querySelector('.out-7').textContent = res;
 }
 
 // TASK 08
@@ -85,7 +110,14 @@ const f7 = () => {
 let a8 = [-2, 3, -4, 5, -6, 7]; // результат 15
 
 const f8 = () => {
-    // let res = a8.reduce((accum, item) => {
+    let res = a8.reduce((accum, item) => {
+        if (item > 0) {
+            return accum + item;
+        } else {
+            return accum;
+        }
+    }, 0);
+    document.querySelector('.out-8').textContent = res;
 }
 
 // TASK 09
@@ -94,6 +126,13 @@ const f8 = () => {
 let a9 = [-2, 3, -4, 5, -6, 7]; // 105
 
 const f9 = () => {
+    let res = a9.reduce((accum, item) => {
+        if (item > 0) {
+            return accum * item;
+        }
+        return accum;
+    }, 1)
+    document.querySelector('.out-9').textContent = res;
 }
 
 // TASK 10
@@ -102,7 +141,14 @@ const f9 = () => {
 let a10 = [-2, 3, -4, 5, -6, 7];  // [15,-12]
 
 const f10 = () => {
-    // let res = a10.reduce( (accum, item) => {
+    let res = a10.reduce((accum, item) => {
+        if (item > 0) {
+            accum[0] += item;
+        } else {
+            accum[1] += item;
+        }
+        return accum;
+    }, [0, 0])
     document.querySelector('.out-10').innerHTML = res;
 }
 
