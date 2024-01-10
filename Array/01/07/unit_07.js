@@ -158,7 +158,13 @@ const f10 = () => {
 let a11 = [-2, 3, 14, 5, -6, 7];  // 14
 
 const f11 = () => {
-    // let res = a11.reduce((accum, item) => {
+    let res = a11.reduce((accum, item) => {
+        if (item > accum) {
+            accum = item;
+        }
+        return accum;
+    })
+    document.querySelector('.out-11').textContent = res;
 }
 
 // TASK 12
@@ -167,7 +173,15 @@ const f11 = () => {
 let a12 = [-2, 3, 14, 15, -6, 7];
 
 const f12 = () => {
-    // let res = a12.reduce(
+    let res = a12.reduce((maxValIndx, item, index) => {
+        if (item > a12[maxValIndx]) {
+            console.log('наибольший эл-т:', item);
+            return index;
+        } else {
+            return maxVal;
+        }
+
+    }, 0)
     document.querySelector('.out-12').innerHTML = res;
 }
 
@@ -177,7 +191,13 @@ const f12 = () => {
 let a13 = [[4, 4, 4], [4, 4], [4, 4, 4, 4], [4], [4, 4]];
 
 const f13 = () => {
-    // let res = a13.reduce((accum, item) => 
+    let res = a13.reduce((accum, item) => {
+        if (accum.length < item.length) {
+            return item;
+        }
+        return item.length;
+    })
+    document.querySelector('.out-13').textContent = res;
 }
 
 // TASK 14
@@ -186,7 +206,14 @@ const f13 = () => {
 let a14 = [[4, 4, 4], [4, 4], [4, 4, 4, 4], [4], [4, 4]];
 
 const f14 = () => {
-    // let res = 
+    let res = a14.reduce((maxLengthArr, currentArr) => {
+        if (maxLengthArr.length < currentArr.length) {
+            return currentArr;
+        } else {
+            return maxLengthArr;
+        }
+
+    }, [])
     document.querySelector('.out-14').innerHTML = res;
 }
 
@@ -196,8 +223,12 @@ const f14 = () => {
 let a15 = [0, 0, 1, 1, 1, 0, 2, 2, 3, 3, 3, 4, 5, 5, 6, 4, 4, 3, 1, 1, 0, 0, -1];
 
 const f15 = () => {
-    // let res = a15.reduce((accum, item) => 
-    document.querySelector('.out-15').innerHTML = res;
+    let res = a15.reduce((accum, item) => {
+        return accum + item;
+
+    }, 0) / a15.length;
+    res = res.toFixed(2);
+    document.querySelector('.out-15').innerHTML = res + ' градусов';
 }
 
 // TASK 16
