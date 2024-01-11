@@ -243,7 +243,21 @@ let a16 = [
 // Ожидаю объект вида  { 45 : "Ivar", 464 : "Astor", 17 : "Bristol" }
 
 const f16 = () => {
+    let res = a16.reduce((accum, item) => {
+        // accum[item.id] = item.name;// порядок факапится
+        accum[a16[0].id] = a16[0].name;
+        accum[a16[1].id] = a16[1].name;
+        accum[a16[2].id] = a16[2].name;// аналогично
+        return accum;
 
+    }, {});
+    console.log(res);
+    let result = '';
+    for (let key in res) {
+        result += key + ' ' + res[key] + '<br>';
+    }
+
+    document.querySelector('.out-16').innerHTML = result;
 }
 
 // TASK 17
@@ -258,7 +272,12 @@ let a17 = {
 let a17_res = [];
 
 const f17 = () => {
+    let a17_res = Object.values(a17).reduce((accum, item) => {
+        accum.push(a17[item]);
+        return accum;
 
+    }, []);
+    document.querySelector('.out-17').innerHTML = a17_res.join(' ');
 }
 
 // TASK 18
@@ -269,7 +288,15 @@ a18[100] = 67;
 a18[2000] = 15;
 
 const f18 = () => {
-    // let res = a18.reduce((accum, item, index) => 
+    let res = a18.reduce((accum, item, index) => {
+        if (item !== undefined) {
+            accum.push(`${index} ${item}\n`);
+        }
+        return accum;
+    }, []);
+    console.log(res);
+    res = res.join(' ');
+    document.querySelector('.out-18').textContent = res;
 }
 
 // TASK 19
