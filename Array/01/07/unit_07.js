@@ -111,10 +111,10 @@ let a8 = [-2, 3, -4, 5, -6, 7]; // результат 15
 
 const f8 = () => {
     let res = a8.reduce((accum, item) => {
-        if (item > 0) {
-            return accum + item;
+        if (item > 0) {//проверка: 
+            return accum + item;//добавляй к накопителю элемент в случае, если он положительный
         } else {
-            return accum;
+            return accum;// возарщай накопитель неизменным, если элемент отрицательный
         }
     }, 0);
     document.querySelector('.out-8').textContent = res;
@@ -143,12 +143,12 @@ let a10 = [-2, 3, -4, 5, -6, 7];  // [15,-12]
 const f10 = () => {
     let res = a10.reduce((accum, item) => {
         if (item > 0) {
-            accum[0] += item;
+            accum[0] += item;//в случае положительный элемент, прибавляем его к нулевому элементу накопителя
         } else {
-            accum[1] += item;
+            accum[1] += item;//иначе, ко второму
         }
         return accum;
-    }, [0, 0])
+    }, [0, 0])// определяем накопитель как массив с двумя элементами, цифрами
     document.querySelector('.out-10').innerHTML = res;
 }
 
@@ -159,8 +159,8 @@ let a11 = [-2, 3, 14, 5, -6, 7];  // 14
 
 const f11 = () => {
     let res = a11.reduce((accum, item) => {
-        if (item > accum) {
-            accum = item;
+        if (item > accum) {// если элемент больше накопителя
+            accum = item;// принимаем накопитель равным этому элементу
         }
         return accum;
     })
@@ -173,15 +173,15 @@ const f11 = () => {
 let a12 = [-2, 3, 14, 15, -6, 7];
 
 const f12 = () => {
-    let res = a12.reduce((maxValIndx, item, index) => {
-        if (item > a12[maxValIndx]) {
-            console.log('наибольший эл-т:', item);
-            return index;
+    let res = a12.reduce((maxValIndx, item, index) => { //накопитель- индекс максимального элемента
+        if (item > a12[maxValIndx]) {//если текущий элемент больше элемента, с индексом, сохраненным в накопителе,
+            console.log(' найден новый наибольший эл-т:', item);
+            return index; //верни его индекс
         } else {
-            return maxVal;
+            return maxValIndx;//иначе верни предидущий индекс максимального эл-та
         }
 
-    }, 0)
+    }, 0)// накопитель-индекс первого элемента
     document.querySelector('.out-12').innerHTML = res;
 }
 
@@ -206,11 +206,11 @@ const f13 = () => {
 let a14 = [[4, 4, 4], [4, 4], [4, 4, 4, 4], [4], [4, 4]];
 
 const f14 = () => {
-    let res = a14.reduce((maxLengthArr, currentArr) => {
-        if (maxLengthArr.length < currentArr.length) {
-            return currentArr;
+    let res = a14.reduce((maxLengthArr, currentArr) => {// накопитель-массив с максимальной длиной
+        if (maxLengthArr.length < currentArr.length) {//текущий с максимальным сравниваем
+            return currentArr; //и если текущий больше, верни его
         } else {
-            return maxLengthArr;
+            return maxLengthArr;//а если нет, оставляй предидущий максимальный
         }
 
     }, [])
@@ -224,10 +224,10 @@ let a15 = [0, 0, 1, 1, 1, 0, 2, 2, 3, 3, 3, 4, 5, 5, 6, 4, 4, 3, 1, 1, 0, 0, -1]
 
 const f15 = () => {
     let res = a15.reduce((accum, item) => {
-        return accum + item;
+        return accum + item;//складываем все элементы массива
 
-    }, 0) / a15.length;
-    res = res.toFixed(2);
+    }, 0) / a15.length;// делим на его длину,
+    res = res.toFixed(2);// ограничиваем кол-во строк после запятой
     document.querySelector('.out-15').innerHTML = res + ' градусов';
 }
 
@@ -244,17 +244,17 @@ let a16 = [
 
 const f16 = () => {
     let res = a16.reduce((accum, item) => {
-        // accum[item.id] = item.name;// порядок факапится
-        accum[a16[0].id] = a16[0].name;
-        accum[a16[1].id] = a16[1].name;
-        accum[a16[2].id] = a16[2].name;// аналогично
+        accum[item.id] = item.name;//в качестве ключа используй элемент с id, в качестве значения эл-т с name
+        // accum[a16[0].id] = a16[0].name;
+        // accum[a16[1].id] = a16[1].name;
+        // accum[a16[2].id] = a16[2].name;//попытка сохранить порядок, тыкаем конкретно.Безрезультатно
         return accum;
 
     }, {});
     console.log(res);
     let result = '';
     for (let key in res) {
-        result += key + ' ' + res[key] + '<br>';
+        result += key + ' ' + res[key] + '<br>';//прибавляй к строке ключ ,пробел,значение,перенос
     }
 
     document.querySelector('.out-16').innerHTML = result;
@@ -272,8 +272,8 @@ let a17 = {
 let a17_res = [];
 
 const f17 = () => {
-    let a17_res = Object.values(a17).reduce((accum, item) => {
-        accum.push(a17[item]);
+    let a17_res = Object.values(a17).reduce((accum, item) => {//на основе обьекта сделай массив, используй значения.Перебирай
+        accum.push(a17[item]);//добавляй в накопитель элементы полученного массива
         return accum;
 
     }, []);
@@ -289,14 +289,14 @@ a18[2000] = 15;
 
 const f18 = () => {
     let res = a18.reduce((accum, item, index) => {
-        if (item !== undefined) {
-            accum.push(`${index} ${item}\n`);
+        if (item !== undefined) {// для reduce пропущенные элементы явл. undef. проверяем.
+            accum.push(`${index} ${item}<br>`); //пушим в накопитель в нужном формате
         }
         return accum;
     }, []);
     console.log(res);
-    res = res.join(' ');
-    document.querySelector('.out-18').textContent = res;
+
+    document.querySelector('.out-18').innerHTML = res;//ВНИМАНИЕ! innerHTML не текстКонтент, чтобы сработало <br>
 }
 
 // TASK 19
@@ -305,8 +305,17 @@ const f18 = () => {
 let a19 = 'hello';
 
 const f19 = () => {
-    // let res = a19.split('').reduce((accum, item) 
-    // document.querySelector('.out-19').innerHTML = res;
+    let res = a19.split('').reduce((accum, item) => {// делай массив,перебирай
+        accum.push(item);
+        return accum;
+
+    }, []);
+    console.log(res);
+    let result = '';
+    for (let key in res) {
+        result += key + ' ' + res[key] + '<br>';
+    }
+    document.querySelector('.out-19').innerHTML = result;
 }
 
 // TASK 20
@@ -317,6 +326,11 @@ let a20 = [4, 5, 6];
 const f20 = () => {
     // let res = a19.split('').reduce((accum, item) => {
     // res = [6,5,4]
+    let res = a20.reduce((accum, item) => {
+        accum.push(item);
+        return accum;
+    }, []).reverse();
+    document.querySelector('.out-20').textContent = res;
 }
 
 document.querySelector('.b-1').addEventListener('click', f1);
