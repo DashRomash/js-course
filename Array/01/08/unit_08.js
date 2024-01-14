@@ -7,6 +7,9 @@ let a1_1 = [55, 66, 77];
 let a1_res;
 
 const f1 = () => {
+    a1_res = a1.concat(a1_1);
+    console.log(a1_res);
+    document.querySelector('.out-1').textContent = a1_res.join(' ');
 }
 
 // TASK 02
@@ -17,7 +20,7 @@ let a2_1 = 'best';
 let a2_res;
 
 const f2 = () => {
-
+    document.querySelector('.out-2').textContent = a2_res = a2.concat(a2_1);
 }
 
 // TASK 03
@@ -29,7 +32,9 @@ let a3_1 = [5, 7];
 let a3_res;
 
 const f3 = () => {
-
+    a3_res = a3.concat(a3_1);
+    console.log(a3_res);
+    document.querySelector('.out-3').textContent = a3_res;
 }
 
 // TASK 04
@@ -41,12 +46,19 @@ let a4_1 = 'prime';
 let a4_res;
 
 const f4 = () => {
+    a4_res = a4.concat(a4_1);
+    document.querySelector('.out-4').textContent = a4_res.join(' ');
 }
 
 // TASK 05
 // Напишите функцию f5 эмулятор concat. Функция должна принимать два аргумента массива и возвращать новый массив объединенный из этих двух. 
 
 const f5 = (ar1, ar2) => {
+    let res = [];
+    res = ar1 + ',' + ar2;
+    console.log(res.split(','));
+    return res.split(',');
+
 }
 
 // TASK 06
@@ -54,7 +66,11 @@ const f5 = (ar1, ar2) => {
 
 
 // для примера я написал 1, но тестировать буду с любым количеством
-const f6 = (arg1) => {
+const f6 = (...arg1) => {
+    let res = [];
+    res = arg1 + ',';
+    return res.split(',');
+
 }
 
 // TASK 07
@@ -63,6 +79,8 @@ const f6 = (arg1) => {
 let a7 = [3, -4, 5, -6, 7, 45, 67];
 
 const f7 = () => {
+    a7.splice(2, 3);
+    document.querySelector('.out-7').textContent = a7;
 }
 
 // TASK 08
@@ -73,6 +91,8 @@ n8 = 4;
 k8 = 3;
 
 const f8 = () => {
+    a8.splice(k8, n8);
+    document.querySelector('.out-8').textContent = a8.join();
 }
 
 // TASK 09
@@ -81,6 +101,9 @@ const f8 = () => {
 let a9 = [-2, 3, -4, 5, -6, 7]; // 105
 
 const f9 = () => {
+    a9.splice(0, 3, 7, 8);
+    document.querySelector('.out-9').textContent = a9;
+
 }
 
 // TASK 10
@@ -93,9 +116,10 @@ let add = [999, 1000]
 
 // что хочу получить в результате работы функции - [-2, 3, 999,1000,  7]
 const f10 = (arr, from, num, add) => {
+    let b10 = arr.slice(0, from);
+    // console.log(b10);
+
 }
-
-
 
 document.querySelector('.b-1').addEventListener('click', f1);
 document.querySelector('.b-2').addEventListener('click', f2);
