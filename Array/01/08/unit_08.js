@@ -118,10 +118,13 @@ let add = [999, 1000]
 const f10 = (arr, from, num, add) => {
     let b10 = arr.slice(0, from);
     // console.log(b10);
-    b10.push(add[0], add[1]);
+    // console.log(arr.slice(from, from + num));
+    b10 = b10.concat(add);
     // console.log(b10);
-    b10.push(a10[5]);
+    b10.push(arr[arr.length - 1]);
     console.log(b10);
+    const result = b10.join(', ');
+    document.querySelector('.out-10').innerHTML = result;
 }
 
 document.querySelector('.b-1').addEventListener('click', f1);
