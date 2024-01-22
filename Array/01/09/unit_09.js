@@ -96,16 +96,20 @@ let a6_from = 23;
 let a6_to = 67;
 
 const f6 = () => {
-    const b6 = a6.findIndex((item, index, arr) => {
-        for (let i = arr.length - 1; i >= 0; i--) { //  перевернула начало поиска
+    // const b6 = a6.findIndex((item, index, arr) => {// не работает ни-фи-га
+    //     for (let i = arr.length - 1; i >= 0; i--) { //  перевернула начало поиска
 
-            if (a6_from < item && item < a6_to) {
-                return index;
-            }
-        }
-        return false;
-    })
-    console.log(b6 !== -1 ? b6 : false);
+    //         if (a6_from < item && item < a6_to) {
+    //             return index;
+    //         }
+    //     }
+    //     return false;
+    // })
+    // console.log(b6);
+    const b6 = a6.reverse().findIndex(item => a6_from < item && item < a6_to);
+    const resIndex = b6 !== -1 ? a6.length - 1 - b6 : false;//a6.length - 1 - b6 формула для нахождения  индекса удовлетворяющего условию в изначальном массиве после метода реверс
+    console.log(resIndex);
+
 }
 
 // TASK 07
@@ -116,6 +120,11 @@ let str7 = 'cccaBCcbBDabBddcCadcDbACacbbCdbBCADBDBdaAdcCd';
 let a7_1 = 'C'; // 43
 
 const f7 = () => {
+
+    const result = str7.lastIndexOf(a7_1);
+    console.log(result);
+    result !== -1 ? document.querySelector('.out-7').textContent = result : document.querySelector('.out-7').textContent = '-1';
+
 }
 
 // TASK 08
@@ -125,6 +134,9 @@ let str8 = 'C#CdABd$d@$Ab!#@#bcAaB@c$D#@AD$A!b#!D!BB@CaAD@###@';
 let a8_1 = 'a'; // 43 ожидаю и на a и на A
 
 const f8 = () => {
+    const result = str8.toLocaleLowerCase().lastIndexOf(a8_1);
+    console.log(result);
+    result !== -1 ? document.querySelector('.out-8').textContent = result : document.querySelector('.out-8').textContent = '-1';
 }
 
 // TASK 09
@@ -134,6 +146,9 @@ let a9 = ['2', '17', '45', '5', '14', '5', '45', '107'];
 let a9_1 = '5'; // ожидаю индекс 5
 
 const f9 = () => {
+    const result = a9.lastIndexOf(a9_1);
+    console.log(result);
+    result !== -1 ? document.querySelector('.out-9').textContent = result : document.querySelector('.out-9').textContent = '-1';
 }
 
 // TASK 10
@@ -144,6 +159,14 @@ let a11 = [0, 4, 22];
 let a10_res = []; // ожидаю [-2, -6];
 
 const f10 = () => {
+    a10.forEach((item, index) => {
+        for (let i = 0; i < a11.length; i++) {
+            if (a11[i] == index) {
+                a10_res.push(item);
+            }
+        }
+    })
+    console.log(a10_res);
 }
 
 
