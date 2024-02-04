@@ -54,10 +54,10 @@ document.querySelector('.b-3').addEventListener('click', f3);
 // По нажатию b-4 выполняется функция f4. Функция с помощью every проверяет, что каждый вложенный массив массива a4 содержит число 100. Результат проверки вывести в out-4. Рекомендуется для проверки использовать includes. 
 
 
-let a4 = [[100, 200], [300, 100, 400], [500, 700, 100, 800]];
+let a4 = [[100, 200], [300, 100, 400], [500, 700, 90, 800]];
 
 const f4 = () => {
-
+    document.querySelector('.out-4').textContent = a4.every(item => item.includes(100));
 }
 
 // TASK 05
@@ -74,6 +74,7 @@ let a5 = [
 ];
 
 const f5 = () => {
+    document.querySelector('.out-5').textContent = a5.every(item => item.age >= 16 ? item.pay : true);
 }
 
 // TASK 06
