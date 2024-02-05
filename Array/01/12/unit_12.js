@@ -83,10 +83,18 @@ const f5 = () => {
 
 let a6 = [1, 4, 2, 6, 7, 3, 5, 2, 9];
 let a6_from = 1
-
+let result = true;;
 const f6 = () => {
+    for (let i = 0; i < a6.length; i++) {
+        a6[i] > a6_from ? result = true : result = false;
+        // if (a6[i] > a6_from) {
+        //     result = true;
+        // } else {
+        //     result = false;
+        // }
+    }
+    document.querySelector('.out-6').textContent = result;
 }
-
 // TASK 07
 // Напишите функцию f7, которая запускается по кнопке b-7. Функция с помощью every проверяет все ли элементы массива a7 больше чем a7_from. Обратите внимание на нашу дописку... Проанализируйте ее работу. Результат работы вывести в out-7.
 
@@ -99,17 +107,22 @@ const f7 = () => {
         if (index == 2) {
             a7.push(2);
         }
-        // тут ваш if....
+        if (item > a7_from) {
+            return true;
+        }
     });
+    console.log(a7);
     document.querySelector('.out-7').innerHTML = res;
 }
 
 // TASK 08
 //  Напишите функцию f8, которая запускается по кнопке b-8. Функция c помощью some проверяет, что хотя один из элементов массива a8 был больше 100. Результат выводит в out-8.
 
-let a8 = [10, 4, 20, 6, 70, 30, 500, 2, 9];
+let a8 = [10, 4, 20, 6, 70, 30, 50, 2, 9];
 
 const f8 = () => {
+    let b8 = a8.some(item => item > 100);
+    document.querySelector('.out-8').textContent = b8;
 }
 
 // TASK 09
@@ -128,6 +141,8 @@ let a9 = [
 ];
 
 const f9 = () => {
+    let b9 = a9.some(item => item.age <= 16 ? true : false);
+    document.querySelector('.out-9').textContent = b9;
 }
 
 // TASK 10
@@ -138,10 +153,12 @@ let a10_from = 55;
 
 const isBigFrom = num => {
     // где в качестве num вы передаете a10_from
+    return a10.some(item => item > num);
+
 }
 
 const f10 = () => {
-
+    document.querySelector('.out-10').innerHTML = isBigFrom(a10_from);
 }
 
 
