@@ -19,7 +19,8 @@ let a2 = [13, [11, 22], [33, 44, 55], [66, 77, 88], 72];
 let a2_res = [];
 
 const f2 = () => {
-
+    a2_res = a2.flat();
+    document.querySelector('.out-2').textContent = a2_res.join(' ');
 }
 
 // TASK 03
@@ -31,7 +32,9 @@ a3[200] = [11, 22, 33, [55]];
 let a3_res = [];
 
 const f3 = () => {
-
+    a3_res = a3.flat(2);
+    console.log(a3_res);
+    document.querySelector('.out-3').textContent = a3_res.join(' ');
 }
 
 // TASK 04
@@ -42,7 +45,7 @@ const f3 = () => {
 let a4 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const f4 = () => {
-
+    document.querySelector('.out-4').textContent = a4.fill(7, 2, 5).join(' ');
 }
 
 // TASK 05
@@ -52,6 +55,7 @@ const f4 = () => {
 let a5 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const f5 = () => {
+    document.querySelector('.out-5').textContent = a5.fill(0, 2).join(' ');
 }
 
 // TASK 06 
@@ -59,6 +63,7 @@ const f5 = () => {
 
 const f6 = (l, n) => {
 
+    return new Array(l).fill(n).join(' ');
 }
 
 // TASK 07
@@ -66,6 +71,8 @@ const f6 = (l, n) => {
 
 
 const f7 = (l) => {
+    // return new Array(l).fill(Math.floor(Math.random() * 101)).join(' ');
+    return new Array(l).fill().map(() => Math.floor(Math.random() * 101));
 }
 
 // TASK 08
@@ -77,6 +84,8 @@ a8[200] = 300;
 let a8_res = [];
 
 const f8 = () => {
+    a8_res = Object.keys(a8);
+    document.querySelector('.out-8').textContent = a8_res.join(' ');
 }
 
 // TASK 09
@@ -92,7 +101,8 @@ let a9 = {
 let a9_res = [];
 
 const f9 = () => {
-
+    a9_res = Object.keys(a9);
+    document.querySelector('.out-9').textContent = a9_res;
 }
 
 // TASK 10
@@ -106,6 +116,12 @@ a10[200] = 300;
 let a10_res = [];
 
 const f10 = () => {
+    for (let key in a10) {
+        if (key !== undefined) {
+            a10_res.push(key);
+        }
+    }
+    document.querySelector('.out-10').textContent = a10_res;
 }
 
 
